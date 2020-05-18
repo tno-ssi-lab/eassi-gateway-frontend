@@ -30,10 +30,10 @@
 
       <b-form-group label="Request data">
         <b-form-textarea
+          class="data-input"
           :value="JSON.stringify(data, null, 2)"
-          :options="[1]"
           required
-          @input="(val) => (this.data = JSON.parse(val))"
+          @input="(val) => (data = JSON.parse(val))"
         ></b-form-textarea>
       </b-form-group>
 
@@ -41,7 +41,7 @@
     </b-form>
 
     <b-card class="mt-3" header="Created Token">
-      <pre class="m-0">{{ token }}</pre>
+      <pre class="token-output m-0">{{ token }}</pre>
     </b-card>
   </div>
 </template>
@@ -70,6 +70,17 @@ export default {
         this.message = response;
       });
     },
+  },
+  async mounted() {
+    try {
+      const result = await axios.get("/api/organizations");
+      console.log(result);
+      this.organizations = result.data.map((o) => {
+        return { value: o.id, text: `${o.name} (${o.id})` };
+      });
+    } catch (e) {
+      console.error(e);
+    }
   },
   methods: {
     async createToken() {
@@ -105,16 +116,16 @@ export default {
       }
     },
   },
-  async mounted() {
-    try {
-      const result = await axios.get("/api/organizations");
-      console.log(result);
-      this.organizations = result.data.map((o) => {
-        return { value: o.id, text: `${o.name} (${o.id})` };
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  },
 };
 </script>
+
+<style scoped>
+.data-input {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+.token-output {
+  white-space: pre-wrap;
+}
+</style>
