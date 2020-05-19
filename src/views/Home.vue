@@ -2,7 +2,10 @@
   <div class="home">
     <ul>
       <li>
-        <router-link to="/utils">A link</router-link>
+        <router-link to="/utils">Utils</router-link>
+      </li>
+      <li>
+        <router-link to="/issue/someToken">Issue</router-link>
       </li>
     </ul>
   </div>

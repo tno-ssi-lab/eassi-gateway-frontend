@@ -2,9 +2,15 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Utils from "../views/Utils.vue";
+import Issue from "../views/Issue.vue";
+import Verify from "../views/Verify.vue";
+import WalletSelect from "../components/WalletSelect.vue";
 
 Vue.use(VueRouter);
 
+/**
+ * @type {import("vue-router").RouteConfig[]}
+ */
 const routes = [
   {
     path: "/",
@@ -17,13 +23,21 @@ const routes = [
     component: Utils,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/wallet",
+    name: "Wallet",
+    component: WalletSelect,
+  },
+  {
+    path: "/issue/:token",
+    name: "Issue",
+    component: Issue,
+    props: true,
+  },
+  {
+    path: "/verify/:token",
+    name: "Verify",
+    component: Verify,
+    props: true,
   },
 ];
 

@@ -16,6 +16,7 @@
           v-model="organizationId"
           required
           :options="organizations"
+          :disabled="!organizationsLoaded"
         ></b-form-select>
       </b-form-group>
 
@@ -41,7 +42,10 @@
     </b-form>
 
     <b-card class="mt-3" header="Created Token">
-      <pre class="token-output m-0">{{ token }}</pre>
+      <pre class="token-output">{{ token }}</pre>
+      <p v-if="token" class="m-0">
+        <router-link :to="tokenLink">{{ tokenLinkText }}</router-link>
+      </p>
     </b-card>
   </div>
 </template>
@@ -59,25 +63,41 @@ export default {
       requestType: "",
       data: {},
       token: "",
-      organizations: [],
+      organizationsLoaded: false,
+      organizations: [{ value: null, text: "Loading organizations..." }],
     };
   },
-  sockets: {
-    connect() {
-      console.log("Connected in Home");
-      this.$socket.client.emit("message", "New message", (response) => {
-        console.log("Got response in connect", response, this);
-        this.message = response;
-      });
+  computed: {
+    tokenLink() {
+      if (!this.token) {
+        return;
+      }
+
+      const name = this.isIssueRequest ? "Issue" : "Verify";
+
+      return {
+        name,
+        params: {
+          token: this.token,
+        },
+      };
+    },
+    tokenLinkText() {
+      const dest = this.isIssueRequest ? "issue" : "verify";
+      return `Go to ${dest} page`;
+    },
+    isIssueRequest() {
+      return this.requestType === "credential-issue-request";
     },
   },
-  async mounted() {
+  async created() {
     try {
       const result = await axios.get("/api/organizations");
       console.log(result);
       this.organizations = result.data.map((o) => {
         return { value: o.id, text: `${o.name} (${o.id})` };
       });
+      this.organizationsLoaded = true;
     } catch (e) {
       console.error(e);
     }
@@ -91,7 +111,7 @@ export default {
           aud: this.requestType,
         };
 
-        if (this.requestType === "credential-issue-request") {
+        if (this.isIssueRequest) {
           data.data = this.data;
         }
 
