@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import CreateTokenForm from "../components/CreateTokenForm.vue";
-import CreateRequestForm from "../components/CreateRequestForm.vue";
+import CreateTokenForm from "../components/utils/CreateTokenForm.vue";
+import CreateRequestForm from "../components/utils/CreateRequestForm.vue";
 
 export default {
   name: "Utils",

@@ -34,7 +34,8 @@
           class="data-input"
           :value="JSON.stringify(data, null, 2)"
           required
-          @input="(val) => (data = JSON.parse(val))"
+          rows="6"
+          @input="updateData"
         ></b-form-textarea>
       </b-form-group>
 
@@ -44,7 +45,11 @@
     <b-card class="mt-3" header="Created Token">
       <pre class="token-output">{{ token }}</pre>
       <p v-if="token" class="m-0">
-        <router-link :to="tokenLink">{{ tokenLinkText }}</router-link>
+        <router-link
+          :to="tokenLink"
+          target="_blank"
+          v-text="tokenLinkText"
+        ></router-link>
       </p>
     </b-card>
   </div>
@@ -132,7 +137,7 @@ export default {
           this.data = data;
         }
       } catch {
-        console.log("Could not decode", newData);
+        return;
       }
     },
   },
