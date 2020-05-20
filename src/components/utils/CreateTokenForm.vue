@@ -78,7 +78,9 @@ export default {
         return;
       }
 
-      const name = this.isIssueRequest ? "Issue" : "Verify";
+      const name = this.isIssueRequest
+        ? "CreateIssueRequest"
+        : "CreateVerifyRequest";
 
       return {
         name,
@@ -113,7 +115,7 @@ export default {
         const data = {
           type: this.credentialType,
           callbackUrl: this.callbackUrl,
-          aud: this.requestType,
+          sub: this.requestType,
         };
 
         if (this.isIssueRequest) {

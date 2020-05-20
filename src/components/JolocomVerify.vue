@@ -1,9 +1,5 @@
 <template>
   <div class="jolocom-verify">
-    <div v-if="status === 'started'" class="text-center">
-      <b-spinner variant="secondary" />
-    </div>
-
     <b-modal
       :visible="showModal"
       title="Please scan the QR code with your Jolocom Wallet"

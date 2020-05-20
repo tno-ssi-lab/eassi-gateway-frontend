@@ -10,7 +10,7 @@ const notificationMap = {
   handling: "Handling data...",
   error: "Something went wrong, you will be redirected shortly.",
   cancelled: "You cancelled the request, you will be redirected shortly.",
-  done: "Success! We'll redirect you shortly.",
+  success: "Success! We'll redirect you shortly.",
 };
 
 export default {

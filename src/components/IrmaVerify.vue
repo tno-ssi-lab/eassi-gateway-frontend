@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import IrmaSession from "./IrmaSession.vue";
 
 export default {
@@ -20,19 +21,15 @@ export default {
     IrmaSession,
   },
   props: {
-    // status: {
-    //   type: String,
-    //   required: true,
-    // },
-    // requestId: {
-    //   type: String,
-    //   required: true,
-    // },
     jwt: {
       type: String,
       required: true,
     },
     server: {
+      type: String,
+      required: true,
+    },
+    requestId: {
       type: String,
       required: true,
     },
@@ -42,16 +39,20 @@ export default {
       this.$emit("update", "handling");
       console.log(resultJwt);
 
-      //   axios
-      //     .post(`/connectors/irma/verify/${this.requestId}`, resultJwt, {
-      //       headers: {
-      //         "Content-Type": "text/plain",
-      //       },
-      //     })
-      //     .then((response) => {
-      //       console.log("Backend handled jwt", response);
-      //     })
-      //     .catch(() => this.$emit("error"));
+      axios
+        .post(
+          `/api/verify/irma/disclose`,
+          { jwt: resultJwt },
+          {
+            params: {
+              verifyRequestId: this.requestId,
+            },
+          }
+        )
+        .then((response) => {
+          console.log("Backend handled jwt", response);
+        })
+        .catch(() => this.$emit("error"));
     },
   },
 };

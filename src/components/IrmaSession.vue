@@ -1,5 +1,9 @@
+<template>
+  <div class="irma-session-stub"></div>
+</template>
+
 <script>
-import irma from "@privacybydesign/irmajs";
+import * as irma from "@privacybydesign/irmajs";
 
 export default {
   name: "IrmaSession",

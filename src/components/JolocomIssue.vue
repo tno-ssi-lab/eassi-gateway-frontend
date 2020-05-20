@@ -1,9 +1,5 @@
 <template>
   <div class="jolocom-issue">
-    <div v-if="status === 'started'" class="text-center">
-      <b-spinner variant="secondary" />
-    </div>
-
     <b-modal
       :visible="showModal"
       title="Please scan the QR code with your Jolocom Wallet"
@@ -12,8 +8,8 @@
       no-close-on-esc
       no-close-on-backdrop
       hide-header-close
-      @cancel="$emit('cancel')"
-      @ok="$emit('done')"
+      @cancel="(status = 'cancelled') && $emit('cancel')"
+      @ok="(status = 'success') && $emit('success')"
     >
       <p class="text-center">
         <img :src="qr" alt="Could not render QR code..." />
@@ -28,10 +24,6 @@ const WAIT_TIME = 1000;
 export default {
   name: "JolocomIssue",
   props: {
-    status: {
-      type: String,
-      required: true,
-    },
     qr: {
       type: String,
       required: true,
@@ -39,6 +31,7 @@ export default {
   },
   data() {
     return {
+      status: "started",
       modal: false,
     };
   },
