@@ -1,20 +1,16 @@
 <template>
   <div class="utils">
-    <create-token-form></create-token-form>
-    <hr />
-    <create-request-form></create-request-form>
+    <b-navbar>
+      <b-navbar-brand>TNO SSI Provider</b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-navbar-nav>
+        <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
+        <b-nav-item href="#" disabled>Organizations</b-nav-item>
+        <b-nav-item href="#" disabled>Credential types</b-nav-item>
+        <b-nav-item href="#" disabled>Jolocom types</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+    <router-view></router-view>
   </div>
 </template>
-
-<script>
-import CreateTokenForm from "../components/utils/CreateTokenForm.vue";
-import CreateRequestForm from "../components/utils/CreateRequestForm.vue";
-
-export default {
-  name: "Utils",
-  components: {
-    CreateTokenForm,
-    CreateRequestForm,
-  },
-};
-</script>

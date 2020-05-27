@@ -1,8 +1,6 @@
 <template>
   <div class="create-token-form">
     <b-form @submit.prevent="createToken">
-      <h1>Create request token</h1>
-
       <b-form-group
         label="Organization ID"
         description="The organization for which you want to create a credential request."
@@ -17,7 +15,7 @@
 
       <b-form-group
         label="Credential Type"
-        description="The organization specific credential type you want to perform"
+        description="The organization specific credential type you want to perform."
       >
         <b-form-select
           v-model="credentialType"
@@ -43,7 +41,7 @@
       <b-form-group
         label="Callback URL"
         description="Url to redirect the user to with the response. The response
-      JWT is appended directly to the URL"
+      JWT is appended directly to the URL."
       >
         <b-form-input v-model="callbackUrl" required></b-form-input>
       </b-form-group>
@@ -59,7 +57,7 @@
 
       <b-form-group
         label="Request data"
-        description="Credential data used for issue requests"
+        description="Credential data used for issue requests."
         invalid-feedback="Please enter valid JSON"
         :state="dataState"
       >

@@ -1,12 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import Home from "../views/Home.vue";
 import Utils from "../views/Utils.vue";
+import CreateToken from "../views/utils/CreateToken.vue";
+
 import CreateIssueRequest from "../views/CreateIssueRequest.vue";
 import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
 import PerformIssueRequest from "../views/PerformIssueRequest.vue";
 import PerformVerifyRequest from "../views/PerformVerifyRequest.vue";
-import ConnectorSelect from "../components/ConnectorSelect.vue";
 
 Vue.use(VueRouter);
 
@@ -23,11 +25,13 @@ const routes = [
     path: "/utils",
     name: "Utils",
     component: Utils,
-  },
-  {
-    path: "/connector",
-    name: "Connector",
-    component: ConnectorSelect,
+    children: [
+      {
+        path: "/utils/create-token",
+        name: "CreateToken",
+        component: CreateToken,
+      },
+    ],
   },
   {
     path: "/issue/:connector/:requestId",
@@ -56,7 +60,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "hash",
+  mode: "hash", // FIXME history in production.
   base: process.env.BASE_URL,
   routes,
 });

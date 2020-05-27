@@ -1,8 +1,6 @@
 <template>
-  <div class="create-token-form">
+  <div class="create-request-form">
     <b-form @submit.prevent="createRequest">
-      <h1>Create request</h1>
-
       <b-form-radio-group label="Request type">
         <b-form-radio v-model="requestType" value="credential-verify-request">
           CredentialVerifyRequest
@@ -23,7 +21,7 @@
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
 
-    <b-card class="mt-3" header="Request">
+    <b-card class="mt-3" header="Request" :border-variant="borderVariant">
       <pre class="m-0">{{ JSON.stringify(result, null, 2) }}</pre>
     </b-card>
   </div>
@@ -39,7 +37,19 @@ export default {
       requestType: "",
       token: "",
       result: null,
+      error: null,
     };
+  },
+  computed: {
+    borderVariant() {
+      if (this.error === true) {
+        return "danger";
+      } else if (this.error === false) {
+        return "success";
+      }
+
+      return "";
+    },
   },
   methods: {
     async createRequest() {
@@ -53,9 +63,11 @@ export default {
           },
         });
         console.log(result.data);
+        this.error = false;
         this.result = result.data;
       } catch (e) {
-        console.error(e);
+        this.error = true;
+        this.result = e.response?.data;
       }
     },
   },
