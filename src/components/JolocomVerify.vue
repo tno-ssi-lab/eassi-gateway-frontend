@@ -27,17 +27,18 @@ const WAIT_TIME = 1000;
 export default {
   name: "JolocomVerify",
   props: {
-    status: {
+    qr: {
       type: String,
       required: true,
     },
-    qr: {
+    requestId: {
       type: String,
       required: true,
     },
   },
   data() {
     return {
+      status: "started",
       modal: false,
     };
   },
