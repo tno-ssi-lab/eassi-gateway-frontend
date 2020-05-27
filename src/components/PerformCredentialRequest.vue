@@ -14,7 +14,9 @@
 
     <component
       :is="component"
-      v-if="status !== statuses.loading && component"
+      v-if="
+        status !== statuses.loading && status !== statuses.error && component
+      "
       v-bind="connectorData"
       :request-id="requestId"
       v-on="{ cancel, success, error, update }"
