@@ -60,7 +60,8 @@ const noticeMap = {
   success: "Success! We'll redirect you shortly.",
 };
 
-const WAIT_TIME = 1000;
+const WAIT_TIME = 200;
+const REDIRECT_WAIT_TIME = 1000;
 
 export default {
   name: "PerformCredentialRequest",
@@ -124,11 +125,11 @@ export default {
     redirect({ status, redirectUrl }) {
       console.log("Received redirect", status, redirectUrl);
       this.status = status;
-      setTimeout(() => (window.location = redirectUrl), WAIT_TIME);
+      setTimeout(() => (window.location = redirectUrl), REDIRECT_WAIT_TIME);
     },
   },
   created() {
-    setTimeout(this.performRequest.bind(this), WAIT_TIME);
+    this.performRequest();
   },
   mounted() {
     if (!this.socketConnected) {
@@ -169,8 +170,8 @@ export default {
       this.$socket.client.emit("request-error", this.requestId);
       this.status = "error";
     },
-    success() {
-      this.$socket.client.emit("request-success", this.requestId);
+    success(data) {
+      this.$socket.client.emit("request-success", data);
       this.status = "success";
     },
   },

@@ -16,7 +16,7 @@ import axios from "axios";
 
 import ConnectorSelect from "./ConnectorSelect.vue";
 
-const WAIT_TIME = 1000;
+const WAIT_TIME = 200;
 
 export default {
   name: "CredentialRequest",

@@ -9,7 +9,7 @@
       no-close-on-backdrop
       hide-header-close
       @cancel="(status = 'cancelled') && $emit('cancel')"
-      @ok="(status = 'success') && $emit('success')"
+      @ok="handleOk"
     >
       <p class="text-center">
         <img :src="qr" alt="Could not render QR code..." />
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-const WAIT_TIME = 1000;
+const WAIT_TIME = 200;
 
 export default {
   name: "JolocomIssue",
@@ -35,13 +35,12 @@ export default {
   },
   data() {
     return {
-      status: "started",
-      modal: false,
+      status: "loading",
     };
   },
   computed: {
     showModal() {
-      return this.status === "started" && this.modal;
+      return this.status === "started";
     },
   },
   mounted() {
@@ -50,7 +49,14 @@ export default {
   },
   methods: {
     showQR() {
-      this.modal = true;
+      this.status = "started";
+    },
+    handleOk() {
+      this.status = "success";
+      this.$emit("success", {
+        requestId: this.requestId,
+        connector: "jolocom",
+      });
     },
   },
 };

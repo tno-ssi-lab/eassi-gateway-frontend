@@ -173,6 +173,7 @@ export default {
   },
   methods: {
     async createToken() {
+      this.token = "";
       try {
         const data = {
           type: this.credentialType,
