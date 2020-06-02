@@ -5,6 +5,7 @@ import Home from "../views/Home.vue";
 import Utils from "../views/Utils.vue";
 import CreateToken from "../views/utils/CreateToken.vue";
 import RegisterOrganization from "../views/utils/RegisterOrganization.vue";
+import DefineCredentialType from "../views/utils/DefineCredentialType.vue";
 
 import CreateIssueRequest from "../views/CreateIssueRequest.vue";
 import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
@@ -33,9 +34,14 @@ const routes = [
         component: CreateToken,
       },
       {
-        path: "/utils/register-organization",
+        path: "/utils/organizations",
         name: "RegisterOrganization",
         component: RegisterOrganization,
+      },
+      {
+        path: "/utils/credential-types",
+        name: "DefineCredentialType",
+        component: DefineCredentialType,
       },
     ],
   },

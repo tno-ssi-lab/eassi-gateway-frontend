@@ -9,7 +9,9 @@
         <b-nav-item :to="{ name: 'RegisterOrganization' }"
           >Organizations</b-nav-item
         >
-        <b-nav-item href="#" disabled>Credential types</b-nav-item>
+        <b-nav-item :to="{ name: 'DefineCredentialType' }"
+          >Credential types</b-nav-item
+        >
         <b-nav-item href="#" disabled>Jolocom types</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
