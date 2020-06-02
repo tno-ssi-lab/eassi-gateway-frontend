@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Utils from "../views/Utils.vue";
 import CreateToken from "../views/utils/CreateToken.vue";
+import RegisterOrganization from "../views/utils/RegisterOrganization.vue";
 
 import CreateIssueRequest from "../views/CreateIssueRequest.vue";
 import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
@@ -30,6 +31,11 @@ const routes = [
         path: "/utils/create-token",
         name: "CreateToken",
         component: CreateToken,
+      },
+      {
+        path: "/utils/register-organization",
+        name: "RegisterOrganization",
+        component: RegisterOrganization,
       },
     ],
   },

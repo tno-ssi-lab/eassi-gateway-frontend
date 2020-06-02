@@ -6,7 +6,9 @@
 
       <b-navbar-nav>
         <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
-        <b-nav-item href="#" disabled>Organizations</b-nav-item>
+        <b-nav-item :to="{ name: 'RegisterOrganization' }"
+          >Organizations</b-nav-item
+        >
         <b-nav-item href="#" disabled>Credential types</b-nav-item>
         <b-nav-item href="#" disabled>Jolocom types</b-nav-item>
       </b-navbar-nav>
