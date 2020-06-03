@@ -18,9 +18,9 @@
         description="The organization specific credential type."
       >
         <b-form-input v-model="credentialType" required></b-form-input>
-        <b-alert show variant="primary" v-if="credentialTypeExists"
-          >A credential type with this name already exists</b-alert
-        >
+        <b-alert v-if="credentialTypeExists" show variant="primary">
+          A credential type with this name already exists
+        </b-alert>
       </b-form-group>
       <!-- TODO: add 'already exists' verification -->
 
@@ -30,7 +30,6 @@
       >
         <b-form-select
           v-model="jolocomCredentialTypeId"
-          required
           :options="jolocomTypeChoices"
           :disabled="!jolocomTypesLoaded"
         ></b-form-select>

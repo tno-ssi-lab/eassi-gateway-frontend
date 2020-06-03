@@ -15,7 +15,6 @@
 
     <b-card class="mt-3" header="Registration Response">
       <pre class="registration-output">{{ registrationResponse }}</pre>
-      <p v-if="toregistrationResponseken" class="m-0"></p>
     </b-card>
   </div>
 </template>
