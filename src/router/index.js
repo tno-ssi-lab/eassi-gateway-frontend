@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "../views/Home.vue";
+import NotFound from "../views/NotFound.vue";
+
 import Utils from "../views/Utils.vue";
 import CreateToken from "../views/utils/CreateToken.vue";
 import RegisterOrganization from "../views/utils/RegisterOrganization.vue";
@@ -69,10 +71,14 @@ const routes = [
     component: CreateVerifyRequest,
     props: true,
   },
+  {
+    path: "*",
+    component: NotFound,
+  },
 ];
 
 const router = new VueRouter({
-  mode: "hash", // FIXME history in production.
+  mode: process.env.NODE_ENV === "development" ? "hash" : "history", // FIXME history in production.
   base: process.env.BASE_URL,
   routes,
 });
