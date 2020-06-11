@@ -12,7 +12,9 @@
         <b-nav-item :to="{ name: 'DefineCredentialType' }"
           >Credential types</b-nav-item
         >
-        <b-nav-item href="#" disabled>Jolocom types</b-nav-item>
+        <b-nav-item :to="{ name: 'DefineJolocomType' }"
+          >Jolocom types</b-nav-item
+        >
       </b-navbar-nav>
     </b-navbar>
     <router-view></router-view>
