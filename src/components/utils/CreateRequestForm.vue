@@ -18,7 +18,15 @@
         ></b-form-textarea>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="busy">
+        <div v-if="busy">
+          <b-spinner small></b-spinner>
+          Processing...
+        </div>
+        <div v-else>
+          Submit
+        </div>
+      </b-button>
     </b-form>
 
     <b-card class="mt-3" header="Request" :border-variant="borderVariant">
@@ -38,6 +46,7 @@ export default {
       token: "",
       result: null,
       error: null,
+      busy: false,
     };
   },
   computed: {
@@ -53,6 +62,7 @@ export default {
   },
   methods: {
     async createRequest() {
+      this.busy = true;
       try {
         const path =
           this.requestType === "credential-issue-request" ? "issue" : "verify";
@@ -69,6 +79,9 @@ export default {
         this.error = true;
         this.result = e.response?.data;
       }
+      setTimeout(() => {
+        this.busy = false;
+      }, 300);
     },
   },
 };

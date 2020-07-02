@@ -10,7 +10,18 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="busy">
+        <div v-if="busy">
+          <b-spinner small></b-spinner>
+          Registering...
+        </div>
+        <div v-else>
+          Submit
+        </div>
+      </b-button>
+      <small v-if="busy" class="form-text text-muted"
+        >Registration may take up to a minute.</small
+      >
     </b-form>
 
     <b-card class="mt-3" header="Registration Response">
@@ -30,10 +41,12 @@ export default {
         name: "",
       },
       registrationResponse: null,
+      busy: false,
     };
   },
   methods: {
     async registerOrganization() {
+      this.busy = true;
       this.registrationResponse = null;
       try {
         const data = this.organization;
@@ -45,6 +58,9 @@ export default {
       } catch (e) {
         console.error(e);
       }
+      setTimeout(() => {
+        this.busy = false;
+      }, 300);
     },
   },
 };

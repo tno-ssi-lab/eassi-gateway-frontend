@@ -71,7 +71,15 @@
         ></b-form-textarea>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="busy">
+        <div v-if="busy">
+          <b-spinner small></b-spinner>
+          Processing...
+        </div>
+        <div v-else>
+          Submit
+        </div>
+      </b-button>
     </b-form>
 
     <b-card class="mt-3" header="Created Token">
@@ -103,6 +111,7 @@ export default {
       organizationsLoaded: false,
       organizations: [],
       dataState: null,
+      busy: false,
     };
   },
   computed: {
@@ -173,6 +182,7 @@ export default {
   },
   methods: {
     async createToken() {
+      this.busy = true;
       this.token = "";
       try {
         const data = {
@@ -194,6 +204,9 @@ export default {
       } catch (e) {
         console.error(e);
       }
+      setTimeout(() => {
+        this.busy = false;
+      }, 300);
     },
     updateData(newData) {
       console.log("Got data", newData);

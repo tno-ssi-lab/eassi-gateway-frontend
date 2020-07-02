@@ -53,7 +53,15 @@
         ></b-form-textarea>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="busy">
+        <div v-if="busy">
+          <b-spinner small></b-spinner>
+          Processing...
+        </div>
+        <div v-else>
+          Submit
+        </div>
+      </b-button>
     </b-form>
 
     <b-card class="mt-3" header="Definition Response">
@@ -81,6 +89,7 @@ export default {
       jolocomTypes: [],
       jolocomTypeNameExists: null,
       jolocomTypeExists: null,
+      busy: false,
     };
   },
   watch: {
@@ -150,6 +159,7 @@ export default {
       }
     },
     async defineJolocomType() {
+      this.busy = true;
       this.definitionResponse = "";
       try {
         const data = {
@@ -165,6 +175,9 @@ export default {
       } catch (e) {
         console.error(e);
       }
+      setTimeout(() => {
+        this.busy = false;
+      }, 300);
     },
   },
 };

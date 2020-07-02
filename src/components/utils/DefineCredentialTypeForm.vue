@@ -22,7 +22,6 @@
           A credential type with this name already exists
         </b-alert>
       </b-form-group>
-      <!-- TODO: add 'already exists' verification -->
 
       <b-form-group
         label="Jolocom Credential"
@@ -50,7 +49,15 @@
         <b-form-input v-model="irmaType"></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" :disabled="busy">
+        <div v-if="busy">
+          <b-spinner small></b-spinner>
+          Processing...
+        </div>
+        <div v-else>
+          Submit
+        </div>
+      </b-button>
     </b-form>
 
     <b-card class="mt-3" header="Definition Response">
@@ -77,6 +84,7 @@ export default {
       jolocomTypesLoaded: false,
       jolocomTypes: [],
       credentialTypeExists: null,
+      busy: false,
     };
   },
   computed: {
@@ -103,15 +111,6 @@ export default {
         return { value: jt.id, text: `${jt.name} (${jt.id})` };
       });
     },
-    // TODO: Run a check, to verify that the new credential type has not been defined before
-    // change typeChoices into a verification function
-    // typeChoices() {
-    //   if (!this.organization) {
-    //     return [{ value: null, text: "Loading types..." }];
-    //   }
-
-    //   return this.organization.credentialTypes.map((ct) => ct.type);
-    // },
     jolocomType() {
       if (!this.jolocomCredentialTypeId) {
         return null;
@@ -160,6 +159,7 @@ export default {
       }
     },
     async defineCredentialType() {
+      this.busy = true;
       this.definitionResponse = "";
       try {
         const data = {
@@ -179,6 +179,9 @@ export default {
       } catch (e) {
         console.error(e);
       }
+      setTimeout(() => {
+        this.busy = false;
+      }, 300);
     },
   },
 };
