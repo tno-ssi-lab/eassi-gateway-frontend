@@ -1,10 +1,11 @@
 <template>
   <div class="utils">
     <b-navbar>
-      <b-navbar-brand>TNO SSI Provider</b-navbar-brand>
+      <b-navbar-brand :to="{ name: 'Home' }">TNO SSI Provider</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-navbar-nav>
+        <b-nav-item :to="{ name: 'UtilsHome' }">Utils overview</b-nav-item>
         <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
         <b-nav-item :to="{ name: 'RegisterOrganization' }"
           >Organizations</b-nav-item
@@ -20,3 +21,11 @@
     <router-view></router-view>
   </div>
 </template>
+
+<script>
+// export default {
+//   mounted() {
+//     this.$router.push("/utils/create-token");
+//   },
+// };
+</script>

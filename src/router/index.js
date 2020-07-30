@@ -5,6 +5,7 @@ import Home from "../views/Home.vue";
 import NotFound from "../views/NotFound.vue";
 
 import Utils from "../views/Utils.vue";
+import UtilsHome from "../views/utils/UtilsHome.vue";
 import CreateToken from "../views/utils/CreateToken.vue";
 import RegisterOrganization from "../views/utils/RegisterOrganization.vue";
 import DefineCredentialType from "../views/utils/DefineCredentialType.vue";
@@ -31,6 +32,11 @@ const routes = [
     name: "Utils",
     component: Utils,
     children: [
+      {
+        path: "",
+        name: "UtilsHome",
+        component: UtilsHome,
+      },
       {
         path: "/utils/create-token",
         name: "CreateToken",
