@@ -43,7 +43,10 @@
         </p>
       </li>
     </ul>
-    <p>A more detailed description can be found <a href="#">here</a>.</p>
+    <p>
+      A more detailed description on how to work with the service can be found
+      <a href="https://ci.tno.nl/gitlab/ssi-lab/developer-docs">here</a>.
+    </p>
   </div>
 </template>
 

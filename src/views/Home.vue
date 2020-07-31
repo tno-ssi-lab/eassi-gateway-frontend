@@ -17,14 +17,15 @@
     <h2>Getting started</h2>
     <p>
       For information on how to integrate with our service, please refer to our
-      documentation <a href="#">here</a>.
+      documentation
+      <a href="https://ci.tno.nl/gitlab/ssi-lab/developer-docs">here</a>.
     </p>
     <p>
       To quickly try out different aspects of the service, we encourage you to
       go to the utils page. Here, you can register a new organization, define
       credential types, and manually create issue and verify requests for
       testing purposes. If you know what you are doing, you can go to the issue
-      or verify page. directly
+      or verify page directly.
     </p>
     <ul>
       <li>
