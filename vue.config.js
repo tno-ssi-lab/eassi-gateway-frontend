@@ -7,5 +7,6 @@ module.exports = {
         changeOrigin: true,
       },
     },
+    allowedHosts: [".eu.ngrok.io", "localhost"],
   },
 };
