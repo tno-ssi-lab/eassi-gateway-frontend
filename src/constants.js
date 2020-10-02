@@ -20,7 +20,7 @@ export const CONNECTORS = [
   {
     name: "sovrin",
     title: "Connect.Me",
-    imageUrl: "http://placekitten.com/300/200",
+    imageUrl: "https://placekitten.com/300/200",
     appleDownloadUrl: "https://apps.apple.com/us/app/connect-me/id1260651672",
     googleDownloadUrl:
       "https://play.google.com/store/apps/details?id=me.connect",
