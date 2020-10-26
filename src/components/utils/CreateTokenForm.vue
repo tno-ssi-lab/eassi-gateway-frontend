@@ -60,6 +60,7 @@
         description="Credential data used for issue requests."
         invalid-feedback="Please enter valid JSON"
         :state="dataState"
+        v-show="requestType == 'credential-issue-request'"
       >
         <b-form-textarea
           class="data-input"
