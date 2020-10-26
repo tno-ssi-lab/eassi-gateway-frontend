@@ -45,7 +45,7 @@
     </ul>
     <p>
       A more detailed description on how to work with the service can be found
-      <a href="https://ci.tno.nl/gitlab/ssi-lab/developer-docs">here</a>.
+      <a href="https://gitlab.grnet.gr/essif-lab/tno-ssi-service/developer-docs">here</a>.
     </p>
   </div>
 </template>

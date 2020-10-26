@@ -18,7 +18,7 @@
     <p>
       For information on how to integrate with our service, please refer to our
       documentation
-      <a href="https://ci.tno.nl/gitlab/ssi-lab/developer-docs">here</a>.
+      <a href="https://gitlab.grnet.gr/essif-lab/tno-ssi-service/developer-docs">here</a>.
     </p>
     <p>
       To quickly try out different aspects of the service, we encourage you to
