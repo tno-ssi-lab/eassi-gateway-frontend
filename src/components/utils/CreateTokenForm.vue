@@ -46,7 +46,7 @@
         <b-form-input v-model="callbackUrl" required></b-form-input>
       </b-form-group>
 
-      <b-form-radio-group label="Request type">
+      <b-form-radio-group label="Request type" required>
         <b-form-radio v-model="requestType" value="credential-verify-request">
           CredentialVerifyRequest
         </b-form-radio>
@@ -56,11 +56,11 @@
       </b-form-radio-group>
 
       <b-form-group
+        v-show="requestType == 'credential-issue-request'"
         label="Request data"
         description="Credential data used for issue requests."
         invalid-feedback="Please enter valid JSON"
         :state="dataState"
-        v-show="requestType == 'credential-issue-request'"
       >
         <b-form-textarea
           class="data-input"
