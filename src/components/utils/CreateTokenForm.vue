@@ -2,8 +2,8 @@
   <div class="create-token-form">
     <b-form @submit.prevent="createToken">
       <b-form-group
-        label="Organization ID"
-        description="The organization for which you want to create a credential request."
+        label="App ID"
+        description="The app for which you want to create a credential request."
       >
         <b-form-select
           v-model="organizationId"
@@ -15,7 +15,7 @@
 
       <b-form-group
         label="Credential Type"
-        description="The organization specific credential type you want to perform."
+        description="The app specific credential type you want to perform."
       >
         <b-form-select
           v-model="credentialType"
@@ -27,15 +27,29 @@
       </b-form-group>
 
       <div v-if="type" class="text-muted">
-        <h5>Jolocom credential</h5>
-        <h6>Context</h6>
-        <p v-text="type.jolocomType.context"></p>
+        <div v-if="type.jolocomType">
+          <h5>Jolocom credential</h5>
+          <h6>Context</h6>
+          <p v-text="type.jolocomType.context"></p>
 
-        <h6>Claim interface</h6>
-        <p v-text="type.jolocomType.claimInterface"></p>
+          <h6>Claim interface</h6>
+          <p v-text="type.jolocomType.claimInterface"></p>
+        </div>
 
-        <h5>IRMA credential</h5>
-        <p v-text="type.irmaType"></p>
+        <div v-if="type.irmaType">
+          <h5>IRMA credential</h5>
+          <p v-text="type.irmaType"></p>
+        </div>
+
+        <div v-if="type.indySchema">
+          <h5>Indy credential</h5>
+          <h6>Schema</h6>
+          <p v-text="type.indySchema.indySchemaId"></p>
+          <h6>Credential Definition</h6>
+          <p v-text="type.indySchema.indyCredentialDefinitionId"></p>
+          <h6>Attributes</h6>
+          <p v-text="type.indySchema.attributes"></p>
+        </div>
       </div>
 
       <b-form-group
@@ -46,14 +60,16 @@
         <b-form-input v-model="callbackUrl" required></b-form-input>
       </b-form-group>
 
-      <b-form-radio-group label="Request type" required>
-        <b-form-radio v-model="requestType" value="credential-verify-request">
-          CredentialVerifyRequest
-        </b-form-radio>
-        <b-form-radio v-model="requestType" value="credential-issue-request">
-          CredentialIssueRequest
-        </b-form-radio>
-      </b-form-radio-group>
+      <b-form-group label="Request type">
+        <b-form-radio-group>
+          <b-form-radio v-model="requestType" value="credential-verify-request">
+            CredentialVerifyRequest
+          </b-form-radio>
+          <b-form-radio v-model="requestType" value="credential-issue-request">
+            CredentialIssueRequest
+          </b-form-radio>
+        </b-form-radio-group>
+      </b-form-group>
 
       <b-form-group
         v-show="requestType == 'credential-issue-request'"
