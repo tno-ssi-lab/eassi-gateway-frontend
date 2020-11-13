@@ -18,7 +18,7 @@
     <p>
       For information on how to integrate with our service, please refer to our
       documentation
-      <a href="https://github.com/peterlangenkamp/SSI-Service-Provider"
+      <a href="https://gitlab.com/digicampus/ssi/ssi-service-provider/developer-docs"
         >here</a
       >.
     </p>

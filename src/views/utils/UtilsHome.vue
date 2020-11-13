@@ -45,7 +45,7 @@
     </ul>
     <p>
       A more detailed description on how to work with the service can be found
-      <a href="https://github.com/peterlangenkamp/SSI-Service-Provider"
+      <a href="https://gitlab.com/digicampus/ssi/ssi-service-provider/developer-docs"
         >here</a
       >.
     </p>
