@@ -15,12 +15,12 @@
       </li>
       <li>
         <router-link :to="{ name: 'RegisterOrganization' }"
-          ><strong>Organizations</strong></router-link
+          ><strong>Apps</strong></router-link
         >
         <br />
         <p>
-          Register your organization. This allows you to issue and verify
-          credentials using our SSI service.
+          Register your app. This allows you to issue and verify credentials
+          using our SSI service.
         </p>
       </li>
       <li>
@@ -29,7 +29,7 @@
         >
         <br />
         <p>
-          Define a mapping of organization specific credential types to general
+          Define a mapping of app specific credential types to general
           credential types (e.g. Irma, Jolocom, ...).
         </p>
       </li>
