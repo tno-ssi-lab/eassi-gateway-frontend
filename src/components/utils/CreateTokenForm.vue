@@ -21,7 +21,7 @@
           v-model="credentialType"
           required
           :options="typeChoices"
-          :disabled="!organization"
+          :disabled="!anyTypeChoices"
           @input="setDataFromType"
         ></b-form-select>
       </b-form-group>
@@ -160,6 +160,11 @@ export default {
       }
 
       return this.organization.credentialTypes.map((ct) => ct.type);
+    },
+    anyTypeChoices() {
+      return this.organization
+        ? this.organization.credentialTypes.length > 0
+        : false;
     },
     type() {
       if (!this.organization || !this.credentialType) {
