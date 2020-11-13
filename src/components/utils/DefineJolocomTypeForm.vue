@@ -23,7 +23,8 @@
 
       <b-form-group
         label="Claim Interface"
-        description=""
+        description="The claim interface is an 'example' of your credential
+      payload, with empty strings, 0 for numbers, and false for booleans"
         invalid-feedback="Please enter valid JSON"
         :state="claimInterfaceState"
       >
@@ -39,7 +40,7 @@
 
       <b-form-group
         label="Context"
-        description="The context is used to map terms so that all keys used within the claim interface can have unambigious meaning"
+        description="The JSON-LD context is used to map terms so that all keys used within the claim interface can have unambigious meaning"
         invalid-feedback="Please enter valid JSON"
         :state="contextState"
       >
