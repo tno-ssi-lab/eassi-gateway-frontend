@@ -18,7 +18,7 @@
     <p>
       For information on how to integrate with our service, please refer to our
       documentation
-      <a href="https://gitlab.grnet.gr/essif-lab/tno-ssi-service/developer-docs"
+      <a href="https://github.com/peterlangenkamp/SSI-Service-Provider"
         >here</a
       >.
     </p>
