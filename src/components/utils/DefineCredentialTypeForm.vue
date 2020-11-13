@@ -2,8 +2,8 @@
   <div>
     <b-form @submit.prevent="defineCredentialType">
       <b-form-group
-        label="Organization ID"
-        description="The organization for which you want to define the credential type."
+        label="App ID"
+        description="The app for which you want to define the credential type."
       >
         <b-form-select
           v-model="organizationId"
@@ -15,7 +15,7 @@
 
       <b-form-group
         label="Credential Type"
-        description="The organization specific credential type."
+        description="The app specific credential type."
       >
         <b-form-input v-model="credentialType" required></b-form-input>
         <b-alert v-if="credentialTypeExists" show variant="primary">
