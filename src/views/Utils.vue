@@ -8,12 +8,15 @@
         <b-nav-item :to="{ name: 'UtilsHome' }">Utils overview</b-nav-item>
         <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
         <b-nav-item :to="{ name: 'RegisterOrganization' }">Apps</b-nav-item>
-        <b-nav-item :to="{ name: 'DefineCredentialType' }"
-          >Credential types</b-nav-item
-        >
-        <b-nav-item :to="{ name: 'DefineJolocomType' }"
-          >Jolocom types</b-nav-item
-        >
+        <b-nav-item :to="{ name: 'DefineCredentialType' }">
+          Credential types
+        </b-nav-item>
+        <b-nav-item :to="{ name: 'DefineJolocomType' }">
+          Jolocom types
+        </b-nav-item>
+        <b-nav-item :to="{ name: 'DefineIndySchema' }">
+          Indy schemas
+        </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
     <router-view></router-view>
