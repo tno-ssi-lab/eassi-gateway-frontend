@@ -18,11 +18,12 @@ export const CONNECTORS = [
       "https://play.google.com/store/apps/details?id=org.irmacard.cardemu",
   },
   {
-    name: "sovrin",
-    title: "Connect.Me",
-    imageUrl: "https://placekitten.com/300/200",
-    appleDownloadUrl: "https://apps.apple.com/us/app/connect-me/id1260651672",
+    name: "indy",
+    title: "Esatus",
+    imageUrl: require("./assets/connector-indy-logo.png"),
+    appleDownloadUrl:
+      "https://apps.apple.com/us/app/esatus-wallet/id1496769057",
     googleDownloadUrl:
-      "https://play.google.com/store/apps/details?id=me.connect",
+      "https://play.google.com/store/apps/details?id=com.esatus.wallet",
   },
 ];

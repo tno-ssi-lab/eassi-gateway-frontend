@@ -32,6 +32,8 @@ import ConnectorImage from "./ConnectorImage.vue";
 import JolocomIssue from "./JolocomIssue.vue";
 import JolocomVerify from "./JolocomVerify.vue";
 import IrmaVerify from "./IrmaVerify.vue";
+import IndyIssue from "./IndyIssue.vue";
+import IndyVerify from "./IndyVerify.vue";
 
 const componentMap = {
   jolocom: {
@@ -40,6 +42,10 @@ const componentMap = {
   },
   irma: {
     verify: IrmaVerify,
+  },
+  indy: {
+    issue: IndyIssue,
+    verify: IndyVerify,
   },
 };
 
@@ -54,6 +60,7 @@ const statuses = {
 
 const noticeMap = {
   loading: "Starting session...",
+  ready: "Ready for interaction...",
   handling: "Handling data...",
   error: "Something went wrong, you will be redirected shortly.",
   cancelled: "You cancelled the request, you will be redirected shortly.",
