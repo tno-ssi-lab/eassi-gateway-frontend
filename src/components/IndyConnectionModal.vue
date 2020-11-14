@@ -55,7 +55,7 @@ export default {
   methods: {
     getConnection() {
       axios
-        .post(`api/connectors/indy/invitation`)
+        .post(`/api/connectors/indy/invitation`)
         .then((response) => {
           console.log("Backend created invitation", response);
           this.fetchNewId = true;
