@@ -249,7 +249,7 @@ export default {
         (ct) => ct.type === val
       );
 
-      if (type && type.jolocomType.claimInterface) {
+      if (type && type.jolocomType && type.jolocomType.claimInterface) {
         this.data = type.jolocomType.claimInterface;
       }
     },

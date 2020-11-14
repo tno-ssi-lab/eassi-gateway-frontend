@@ -165,10 +165,12 @@ export default {
         const data = {
           organizationId: this.organizationId,
           type: this.credentialType,
-          jolocomCredentialTypeId: this.jolocomCredentialTypeId,
         };
 
-        // TODO: Similar for jolocomCredentialTypeId when it becomes optional
+        if (this.jolocomCredentialTypeId) {
+          data.jolocomCredentialTypeId = this.jolocomCredentialTypeId;
+        }
+
         if (this.irmaType) {
           data.irmaType = this.irmaType;
         }
