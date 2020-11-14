@@ -49,6 +49,28 @@
         <b-form-input v-model="irmaType"></b-form-input>
       </b-form-group>
 
+      <b-form-group
+        label="Indy Credential"
+        description="The Indy schema to associate with the new credential type."
+      >
+        <b-form-select
+          v-model="indySchemaId"
+          :options="indySchemaChoices"
+          :disabled="!indySchemasLoaded"
+        ></b-form-select>
+      </b-form-group>
+
+      <div v-if="indySchema" class="text-muted">
+        <h6>Schema ID</h6>
+        <p v-text="indySchema.indySchemaId"></p>
+
+        <h6>CredDef ID</h6>
+        <p v-text="indySchema.indyCredentialDefinitionId"></p>
+
+        <h6>Attributes</h6>
+        <p v-text="indySchema.attributes"></p>
+      </div>
+
       <b-button type="submit" variant="primary" :disabled="busy">
         <div v-if="busy">
           <b-spinner small></b-spinner>
@@ -78,12 +100,15 @@ export default {
       credentialType: "",
       irmaType: "irma-demo.MijnOverheid.fullName",
       jolocomCredentialTypeId: "",
+      indySchemaId: "",
       definitionResponse: null,
       organizationsLoaded: false,
       organizations: [],
       jolocomTypesLoaded: false,
       jolocomTypes: [],
       credentialTypeExists: null,
+      indySchemasLoaded: false,
+      indySchemas: [],
       busy: false,
     };
   },
@@ -120,6 +145,21 @@ export default {
         (jt) => jt.id === this.jolocomCredentialTypeId
       );
     },
+    indySchemaChoices() {
+      if (!this.indySchemasLoaded) {
+        return [{ value: null, text: "Loading Indy schemas..." }];
+      }
+      return this.indySchemas.map((is) => {
+        return { value: is.id, text: `${is.name}:${is.version} (${is.id})` };
+      });
+    },
+    indySchema() {
+      if (!this.indySchemaId) {
+        return null;
+      }
+
+      return this.indySchemas.find((is) => is.id === this.indySchemaId);
+    },
   },
   watch: {
     credentialType(value) {
@@ -142,6 +182,15 @@ export default {
       console.log(result);
       this.jolocomTypes = result.data;
       this.jolocomTypesLoaded = true;
+    } catch (e) {
+      console.error(e);
+    }
+
+    try {
+      const result = await axios.get("/api/connectors/indy");
+      console.log(result);
+      this.indySchemas = result.data;
+      this.indySchemasLoaded = true;
     } catch (e) {
       console.error(e);
     }
@@ -173,6 +222,10 @@ export default {
 
         if (this.irmaType) {
           data.irmaType = this.irmaType;
+        }
+
+        if (this.indySchemaId) {
+          data.indySchemaId = this.indySchemaId;
         }
 
         const result = await axios.post("/api/types", data);
