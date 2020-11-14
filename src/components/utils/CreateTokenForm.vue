@@ -29,10 +29,12 @@
       <div v-if="type" class="text-muted">
         <h5>Jolocom credential</h5>
         <h6>Context</h6>
-        <p v-text="type.jolocomType.context"></p>
+        <p v-text="type.jolocomType ? type.jolocomType.context : '-'"></p>
 
         <h6>Claim interface</h6>
-        <p v-text="type.jolocomType.claimInterface"></p>
+        <p
+          v-text="type.jolocomType ? type.jolocomType.claimInterface : '-'"
+        ></p>
 
         <h5>IRMA credential</h5>
         <p v-text="type.irmaType"></p>
@@ -233,7 +235,7 @@ export default {
         (ct) => ct.type === val
       );
 
-      if (type && type.jolocomType.claimInterface) {
+      if (type && type.jolocomType && type.jolocomType.claimInterface) {
         this.data = type.jolocomType.claimInterface;
       }
     },
