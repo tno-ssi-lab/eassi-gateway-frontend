@@ -158,7 +158,7 @@ export default {
         return null;
       }
 
-      return this.indysSchemas.find((is) => is.id === this.indySchemaId);
+      return this.indySchemas.find((is) => is.id === this.indySchemaId);
     },
   },
   watch: {
@@ -222,6 +222,10 @@ export default {
 
         if (this.irmaType) {
           data.irmaType = this.irmaType;
+        }
+
+        if (this.indySchemaId) {
+          data.indySchemaId = this.indySchemaId;
         }
 
         const result = await axios.post("/api/types", data);
