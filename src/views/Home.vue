@@ -43,7 +43,7 @@
         <router-link to="/verify/someToken">Verify credential API</router-link>
       </li>
       <li>
-        <router-link to="https://catalogue.ssi-lab.nl">Credential Catalogue service</router-link>
+        <a href="https://catalogue.ssi-lab.nl">Credential Catalogue service</a>
       </li>
     </ul>
 
