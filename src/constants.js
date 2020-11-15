@@ -2,6 +2,7 @@ export const CONNECTORS = [
   {
     name: "jolocom",
     title: "Jolocom",
+    walletProviderUrl: "https://jolocom.io/",
     imageUrl: require("./assets/connector-jolocom-logo.svg"),
     appleDownloadUrl:
       "https://apps.apple.com/us/app/jolocom-smartwallet/id1223869062",
@@ -11,6 +12,7 @@ export const CONNECTORS = [
   {
     name: "irma",
     title: "IRMA",
+    walletProviderUrl: "https://irma.app/",
     imageUrl: require("./assets/connector-irma-logo.svg"),
     appleDownloadUrl:
       "https://apps.apple.com/nl/app/irma-authenticatie/id1294092994",
@@ -20,6 +22,7 @@ export const CONNECTORS = [
   {
     name: "indy",
     title: "Esatus",
+    walletProviderUrl: "https://esatus.com/",
     imageUrl: require("./assets/connector-indy-logo.png"),
     appleDownloadUrl:
       "https://apps.apple.com/us/app/esatus-wallet/id1496769057",
@@ -28,7 +31,8 @@ export const CONNECTORS = [
   },
   {
     name: "ida",
-    title: "Ida",
+    title: "IDA",
+    walletProviderUrl: "https://rabobank.nl/",
     imageUrl: require("./assets/connector-ida-logo.png"),
     appleDownloadUrl:
       "#",
