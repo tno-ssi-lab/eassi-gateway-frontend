@@ -26,4 +26,13 @@ export const CONNECTORS = [
     googleDownloadUrl:
       "https://play.google.com/store/apps/details?id=com.esatus.wallet",
   },
+  {
+    name: "ida",
+    title: "Ida",
+    imageUrl: require("./assets/connector-ida-logo.png"),
+    appleDownloadUrl:
+      "#",
+    googleDownloadUrl:
+      "#",
+  },
 ];
