@@ -121,7 +121,7 @@ export default {
     return {
       credentialType: "NameCredential",
       organizationId: 1,
-      callbackUrl: "http://httpbin.org/get?response=",
+      callbackUrl: "http://jwt.io?token=",
       requestType: "",
       data: {},
       token: "",
