@@ -26,21 +26,24 @@
       <a href="https://gitlab.com/digicampus/ssi/ssi-service-provider/developer-docs">here</a>.
     </p>
     <p>
-      To quickly try out different aspects of the service, we encourage you to
-      go to the utils page. Here, you can register a new app, define credential
+      To quickly try out different aspects of the service, we encourage you to experiment with the
+      SSI service by using the link below. Here, you can register a new app, define credential
       types, and manually create issue and verify requests for testing purposes.
       If you know what you are doing, you can go to the issue or verify page
       directly.
     </p>
     <ul>
       <li>
-        <router-link to="/utils">Utils</router-link>
+        <router-link to="/utils">Experiment with SSI service</router-link>
       </li>
       <li>
-        <router-link to="/issue/someToken">Issue</router-link>
+        <router-link to="/issue/someToken">Issue credential API</router-link>
       </li>
       <li>
-        <router-link to="/verify/someToken">Verify</router-link>
+        <router-link to="/verify/someToken">Verify credential API</router-link>
+      </li>
+      <li>
+        <router-link to="https://catalogue.ssi-lab.nl">Credential Catalogue service</router-link>
       </li>
     </ul>
 
