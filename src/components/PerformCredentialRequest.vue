@@ -34,6 +34,8 @@ import JolocomVerify from "./JolocomVerify.vue";
 import IrmaVerify from "./IrmaVerify.vue";
 import IndyIssue from "./IndyIssue.vue";
 import IndyVerify from "./IndyVerify.vue";
+import IdaIssue from "./IdaIssue.vue";
+import IdaVerify from "./IdaVerify.vue";
 
 const componentMap = {
   jolocom: {
@@ -46,6 +48,10 @@ const componentMap = {
   indy: {
     issue: IndyIssue,
     verify: IndyVerify,
+  },
+  ida: {
+    issue: IdaIssue,
+    verify: IdaVerify,
   },
 };
 
