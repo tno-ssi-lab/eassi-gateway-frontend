@@ -15,42 +15,26 @@
         label="IDA Type"
         description="Identifier for the new IDA type."
       >
-        <b-form-input v-model="idaType" required></b-form-input>
-        <b-alert v-if="idaTypeExists" show variant="primary"
-          >An IDA type with this identifier already exists</b-alert
+        <b-form-input v-model="idaTypeContext" required></b-form-input>
+        <b-alert v-if="idaTypeContextExists" show variant="primary"
+          >An IDA type with this context already exists</b-alert
         >
       </b-form-group>
 
       <b-form-group
-        label="Claim Interface"
-        description="The claim interface is an 'example' of your credential
+        label="Attributes"
+        description="'Attributes' is an 'example' of your credential
       payload, with empty strings, 0 for numbers, and false for booleans"
         invalid-feedback="Please enter valid JSON"
-        :state="claimInterfaceState"
+        :state="attributesState"
       >
         <b-form-textarea
           class="data-input"
-          :value="JSON.stringify(claimInterface, null, 2)"
+          :value="JSON.stringify(attributes, null, 2)"
           required
           rows="6"
-          :state="claimInterfaceState"
-          @input="updateClaimInterface"
-        ></b-form-textarea>
-      </b-form-group>
-
-      <b-form-group
-        label="Context"
-        description="The JSON-LD context is used to map terms so that all keys used within the claim interface can have unambigious meaning"
-        invalid-feedback="Please enter valid JSON"
-        :state="contextState"
-      >
-        <b-form-textarea
-          class="data-input"
-          :value="JSON.stringify(context, null, 2)"
-          required
-          rows="6"
-          :state="contextState"
-          @input="updateContext"
+          :state="attributesState"
+          @input="updateAttributes"
         ></b-form-textarea>
       </b-form-group>
 
@@ -80,16 +64,14 @@ export default {
   data() {
     return {
       idaTypeName: "",
-      idaType: "",
-      claimInterface: {},
-      context: {},
-      claimInterfaceState: null,
-      contextState: null,
+      idaTypeContext: "",
+      attributes: {},
+      attributesState: null,
       definitionResponse: null,
       idaTypesLoaded: false,
       idaTypes: [],
       idaTypeNameExists: null,
-      idaTypeExists: null,
+      idaTypeContextExists: null,
       busy: false,
     };
   },
@@ -98,8 +80,8 @@ export default {
       this.idaTypeName = value;
       this.checkTypeNameExists(value);
     },
-    idaType(value) {
-      this.idaType = value;
+    idaTypeContext(value) {
+      this.idaTypeContext = value;
       this.checkTypeExists(value);
     },
   },
@@ -130,32 +112,18 @@ export default {
         this.idaTypeExists = false;
       }
     },
-    updateClaimInterface(newClaimInterface) {
-      console.log("Got claimInterface", newClaimInterface);
+    updateAttributes(newAttributes) {
+      console.log("Got attributes", newAttributes);
       try {
-        const claimInterface = JSON.parse(newClaimInterface);
-        console.log(this.claimInterface, claimInterface);
-        if (claimInterface) {
-          console.log(claimInterface);
-          this.claimInterfaceState = null;
-          this.claimInterface = claimInterface;
+        const attributes = JSON.parse(newAttributes);
+        console.log(this.attributes, attributes);
+        if (attributes) {
+          console.log(attributes);
+          this.attributesState = null;
+          this.attributes = attributes;
         }
       } catch (e) {
-        this.claimInterfaceState = false;
-        return;
-      }
-    },
-    updateContext(newContext) {
-      console.log("Got context", newContext);
-      try {
-        const context = JSON.parse(newContext);
-        console.log(this.context, context);
-        if (context) {
-          this.contextState = null;
-          this.context = context;
-        }
-      } catch (e) {
-        this.contextState = false;
+        this.attributesState = false;
         return;
       }
     },
@@ -165,9 +133,8 @@ export default {
       try {
         const data = {
           name: this.idaTypeName,
-          type: this.idaType,
-          claimInterface: this.claimInterface,
-          context: [this.context],
+          context: this.idaTypeContext,
+          attributes: this.attributes,
         };
         console.log(data);
         const result = await axios.post("/api/connectors/ida", data);
