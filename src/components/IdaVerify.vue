@@ -3,20 +3,23 @@
     <b-modal
       :visible="showModal"
       title="Please scan the QR code with your IDA Wallet"
+      size="lg"
+      cancel-variant="danger"
       no-close-on-esc
       no-close-on-backdrop
       hide-header-close
       @cancel="$emit('cancel')"
+      @ok="handleOk"
     >
       <p class="text-center">
         <img :src="qr" alt="Could not render QR code..." />
       </p>
 
-      <template #modal-footer="{ cancel }">
+      <!-- <template #modal-footer="{ cancel }">
         <b-button variant="danger" @click="cancel">
           Cancel
         </b-button>
-      </template>
+      </template> -->
     </b-modal>
   </div>
 </template>
@@ -54,6 +57,13 @@ export default {
   methods: {
     showQR() {
       this.modal = true;
+    },
+    handleOk() {
+      this.status = "success";
+      this.$emit("success", {
+        requestId: this.requestId,
+        connector: "ida",
+      });
     },
   },
 };
