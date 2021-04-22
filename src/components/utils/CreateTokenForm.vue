@@ -36,6 +36,12 @@
           <p v-text="type.jolocomType.claimInterface"></p>
         </div>
 
+        <div v-if="type.idaType">
+          <h5>Ida credential</h5>
+          <h6>Attributes</h6>
+          <p v-text="type.idaType.attributes"></p>
+        </div>
+
         <div v-if="type.irmaType">
           <h5>IRMA credential</h5>
           <p v-text="type.irmaType"></p>
