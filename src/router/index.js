@@ -11,6 +11,7 @@ import RegisterOrganization from "../views/utils/RegisterOrganization.vue";
 import DefineCredentialType from "../views/utils/DefineCredentialType.vue";
 import DefineJolocomType from "../views/utils/DefineJolocomType.vue";
 import DefineIndySchema from "../views/utils/DefineIndySchema.vue";
+import DefineTrinsicSchema from "../views/utils/DefineTrinsicSchema.vue";
 
 import CreateIssueRequest from "../views/CreateIssueRequest.vue";
 import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
@@ -62,6 +63,11 @@ const routes = [
         path: "/utils/indy-schemas",
         name: "DefineIndySchema",
         component: DefineIndySchema,
+      },
+      {
+        path: "/utils/trinsic-types",
+        name: "DefineTrinsicType",
+        component: DefineTrinsicType,
       },
     ],
   },
