@@ -12,8 +12,8 @@
       </b-form-group>
 
       <b-form-group
-        label="IDA Type"
-        description="Identifier for the new IDA type."
+        label="IDA Type Context"
+        description="Context for the new IDA type."
       >
         <b-form-input v-model="idaTypeContext" required></b-form-input>
         <b-alert v-if="idaTypeContextExists" show variant="primary"

@@ -18,7 +18,7 @@
           Indy schemas
         </b-nav-item>
         <b-nav-item :to="{ name: 'DefineIdaType' }">
-          IDA schemas
+          IDA types
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
