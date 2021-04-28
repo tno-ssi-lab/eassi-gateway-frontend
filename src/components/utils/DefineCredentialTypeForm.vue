@@ -43,6 +43,28 @@
       </div>
 
       <b-form-group
+        label="IDA Credential"
+        description="The IDA type to associate with the new credential type."
+      >
+        <b-form-select
+          v-model="idaCredentialTypeId"
+          :options="idaTypeChoices"
+          :disabled="!idaTypesLoaded"
+        ></b-form-select>
+      </b-form-group>
+
+      <div v-if="idaType" class="text-muted">
+        <h6>Name</h6>
+        <p v-text="idaType.name"></p>
+
+        <h6>Context</h6>
+        <p v-text="idaType.context"></p>
+
+        <h6>Attributes</h6>
+        <p v-text="idaType.attributes"></p>
+      </div>
+
+      <b-form-group
         label="Irma Credential"
         description="The Irma type to associate with the new credential type."
       >
@@ -109,6 +131,9 @@ export default {
       credentialTypeExists: null,
       indySchemasLoaded: false,
       indySchemas: [],
+      idaCredentialTypeId: "",
+      idaTypesLoaded: false,
+      idaTypes: [],
       busy: false,
     };
   },
@@ -143,6 +168,23 @@ export default {
 
       return this.jolocomTypes.find(
         (jt) => jt.id === this.jolocomCredentialTypeId
+      );
+    },
+    idaTypeChoices() {
+      if (!this.idaTypesLoaded) {
+        return [{ value: null, text: "Loading Ida types..." }];
+      }
+      return this.idaTypes.map((jt) => {
+        return { value: jt.id, text: `${jt.name} (${jt.id})` };
+      });
+    },
+    idaType() {
+      if (!this.idaCredentialTypeId) {
+        return null;
+      }
+
+      return this.idaTypes.find(
+        (jt) => jt.id === this.idaCredentialTypeId
       );
     },
     indySchemaChoices() {
@@ -187,6 +229,15 @@ export default {
     }
 
     try {
+      const result = await axios.get("/api/connectors/ida");
+      console.log(result);
+      this.idaTypes = result.data;
+      this.idaTypesLoaded = true;
+    } catch (e) {
+      console.error(e);
+    }
+
+    try {
       const result = await axios.get("/api/connectors/indy");
       console.log(result);
       this.indySchemas = result.data;
@@ -218,6 +269,10 @@ export default {
 
         if (this.jolocomCredentialTypeId) {
           data.jolocomCredentialTypeId = this.jolocomCredentialTypeId;
+        }
+
+        if (this.idaCredentialTypeId) {
+          data.idaCredentialTypeId = this.idaCredentialTypeId;
         }
 
         if (this.irmaType) {
