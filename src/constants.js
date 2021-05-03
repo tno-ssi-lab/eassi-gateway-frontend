@@ -39,4 +39,14 @@ export const CONNECTORS = [
     googleDownloadUrl:
       "https://play.google.com/store/apps/details?id=nl.rabobank.ida",
   },
+  {
+    name: "trinsic",
+    title: "Trinsic",
+    walletProviderUrl: "https://trinsic.id/",
+    imageUrl: require("./assets/connector-trinsic-logo.jpg"),
+    appleDownloadUrl:
+      "https://apps.apple.com/nl/app/trinsic-wallet/id1475160728",
+    googleDownloadUrl:
+      "https://play.google.com/store/apps/details?id=id.streetcred.apps.mobile",
+  },
 ];
