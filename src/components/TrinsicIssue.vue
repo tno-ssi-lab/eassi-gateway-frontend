@@ -9,13 +9,9 @@
 
 <script>
 import axios from "axios";
-import TrinsicConnectionModal from "./TrinsicConnectionModal.vue";
 
 export default {
   name: "TrinsicIssue",
-  components: {
-    TrinsicConnectionModal,
-  },
   props: {
     requestId: {
       type: String,

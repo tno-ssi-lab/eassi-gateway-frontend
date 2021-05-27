@@ -65,9 +65,9 @@ const routes = [
         component: DefineIndySchema,
       },
       {
-        path: "/utils/trinsic-types",
-        name: "DefineTrinsicType",
-        component: DefineTrinsicType,
+        path: "/utils/trinsic-schemas",
+        name: "DefineTrinsicSchema",
+        component: DefineTrinsicSchema,
       },
     ],
   },
