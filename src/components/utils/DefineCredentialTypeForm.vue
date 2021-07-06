@@ -71,6 +71,27 @@
         <p v-text="indySchema.attributes"></p>
       </div>
 
+      <b-form-group
+        label="Trinsic Credential"
+        description="The Trinsic schema to associate with the new credential type.">
+        <b-form-select
+          v-model="trinsicSchemaId"
+          :options="trinsicSchemaChoices"
+          :disabled="!trinsicSchemasLoaded"
+        ></b-form-select>
+      </b-form-group>
+
+      <div v-if="trinsicSchema" class="text-muted">
+        <h6>Schema ID</h6>
+        <p v-text="trinsicSchema.trinsicSchemaId"></p>
+
+        <h6>CredDef ID</h6>
+        <p v-text="trinsicSchema.trinsicCredentialDefinitionId"></p>
+
+        <h6>Attributes</h6>
+        <p v-text="trinsicSchema.attributes"></p>
+      </div>
+
       <b-button type="submit" variant="primary" :disabled="busy">
         <div v-if="busy">
           <b-spinner small></b-spinner>
@@ -109,6 +130,8 @@ export default {
       credentialTypeExists: null,
       indySchemasLoaded: false,
       indySchemas: [],
+      trinsicSchemasLoaded: false,
+      trinsicSchemas: [],
       busy: false,
     };
   },
@@ -160,6 +183,21 @@ export default {
 
       return this.indySchemas.find((is) => is.id === this.indySchemaId);
     },
+    trinsicSchemaChoices() {
+      if (!this.trinsicSchemasLoaded) {
+        return [{ value: null, text: "Loading Trinsic schemas..." }];
+      }
+      return this.trinsicSchemas.map((is) => {
+        return { value: is.id, text: `${is.name}:${is.version} (${is.id})` };
+      });
+    },
+    trinsicSchema() {
+      if (!this.trinsicSchemaId) {
+        return null;
+      }
+
+      return this.trinsicSchemas.find((is) => is.id === this.trinsicSchemaId);
+    },
   },
   watch: {
     credentialType(value) {
@@ -191,6 +229,15 @@ export default {
       console.log(result);
       this.indySchemas = result.data;
       this.indySchemasLoaded = true;
+    } catch (e) {
+      console.error(e);
+    }
+
+    try {
+      const result = await axios.get("/api/connectors/trinsic");
+      console.log(result);
+      this.trinsicSchemas = result.data;
+      this.trinsicSchemasLoaded = true;
     } catch (e) {
       console.error(e);
     }
@@ -226,6 +273,10 @@ export default {
 
         if (this.indySchemaId) {
           data.indySchemaId = this.indySchemaId;
+        }
+
+        if (this.trinsicSchemaId) {
+          data.trinsicSchemaId = this.trinsicSchemaId;
         }
 
         const result = await axios.post("/api/types", data);

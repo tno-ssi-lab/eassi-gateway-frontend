@@ -136,7 +136,7 @@ export default {
         const data = {
           name: this.trinsicSchemaName,
           version: this.trinsicSchemaVersion,
-          attributes: this.attributes,
+          attributeNames: this.attributes,
         };
         console.log(data);
         const result = await axios.post("/api/connectors/trinsic", data);
