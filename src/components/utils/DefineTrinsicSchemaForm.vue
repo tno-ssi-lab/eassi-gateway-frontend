@@ -28,14 +28,14 @@
       </b-form-group>
 
       <b-form-group
-        label="Attributes"
-        description='A json formatted array of attributes, format: ["attr1", "attr2"]'
+        label=" names"
+        description='A json formatted array of attribute names, format: ["attr1", "attr2"]'
         invalid-feedback="Please enter valid JSON"
         :state="attributesState"
       >
         <b-form-textarea
           class="data-input"
-          :value="JSON.stringify(attributes, null, 2)"
+          :value="JSON.stringify(attributeNames, null, 2)"
           required
           rows="6"
           :state="attributesState"
@@ -71,7 +71,7 @@ export default {
       trinsicSchemaName: "",
       trinsicSchemaVersion: "",
       schemaState: null,
-      attributes: [],
+      attributeNames: [],
       attributesState: null,
       definitionResponse: null,
       trinsicSchemasLoaded: false,
@@ -115,14 +115,14 @@ export default {
       }
     },
     updateAttributes(newAttributes) {
-      console.log("Got attributes", newAttributes);
+      console.log("Got attribute names", newAttributes);
       try {
-        const attributes = JSON.parse(newAttributes);
-        console.log(this.attributes, attributes);
-        if (attributes) {
-          console.log(attributes);
+        const attributeNames = JSON.parse(newAttributes);
+        console.log(this.attributeNames, attributeNames);
+        if (attributeNames) {
+          console.log(attributeNames);
           this.attributesState = null;
-          this.attributes = attributes;
+          this.attributeNames = attributeNames;
         }
       } catch (e) {
         this.attributesState = false;
@@ -136,7 +136,7 @@ export default {
         const data = {
           name: this.trinsicSchemaName,
           version: this.trinsicSchemaVersion,
-          attributeNames: this.attributes,
+          attributeNames: this.attributeNames,
         };
         console.log(data);
         const result = await axios.post("/api/connectors/trinsic", data);

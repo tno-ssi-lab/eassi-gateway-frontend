@@ -89,7 +89,7 @@
         <p v-text="trinsicSchema.trinsicCredentialDefinitionId"></p>
 
         <h6>Attributes</h6>
-        <p v-text="trinsicSchema.attributes"></p>
+        <p v-text="trinsicSchema.attributeNames"></p>
       </div>
 
       <b-button type="submit" variant="primary" :disabled="busy">
