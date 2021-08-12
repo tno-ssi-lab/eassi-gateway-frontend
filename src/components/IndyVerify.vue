@@ -32,7 +32,7 @@ export default {
       this.connectionId = connectionId;
       axios
         .post(
-          `/api/connectors/indy/verify`,
+          `/api/verify/indy/verify`,
           { identifier: connectionId },
           {
             params: {
