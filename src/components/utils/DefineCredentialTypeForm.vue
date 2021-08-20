@@ -84,13 +84,13 @@
 
       <div v-if="trinsicSchema" class="text-muted">
         <h6>Schema ID</h6>
-        <p v-text="trinsicSchema.schemaId"></p>
+        <p v-text="trinsicSchema.trinsicSchemaId"></p>
 
         <h6>CredDef ID</h6>
-        <p v-text="trinsicSchema.definitionId"></p>
+        <p v-text="trinsicSchema.trinsicCredentialDefinitionId"></p>
 
         <h6>Attributes</h6>
-        <p v-text="trinsicSchema.attributes"></p>
+        <p v-text="trinsicSchema.attributeNames"></p>
       </div>
 
       <b-button type="submit" variant="primary" :disabled="busy">
@@ -188,20 +188,15 @@ export default {
         return [{ value: null, text: "Loading Trinsic schemas..." }];
       }
       return this.trinsicSchemas.map((is) => {
-        return {
-          value: is.schemaId,
-          text: `${is.name}:${is.version} (${is.schemaId})`,
-        };
+        return { value: is.id, text: `${is.name}:${is.version} (${is.id})` };
       });
     },
     trinsicSchema() {
       if (!this.trinsicSchemaId) {
         return null;
       }
-      //console.log("testasfsfdas");
-      return this.trinsicSchemas.find(
-        (is) => is.schemaId === this.trinsicSchemaId
-      );
+      
+      return this.trinsicSchemas.find((is) => is.id === this.trinsicSchemaId);
     },
   },
   watch: {
@@ -239,7 +234,7 @@ export default {
     }
 
     try {
-      const result = await axios.get("/api/connectors/trinsic/credentials");
+      const result = await axios.get("/api/connectors/trinsic");
       console.log(result);
       this.trinsicSchemas = result.data;
       this.trinsicSchemasLoaded = true;
