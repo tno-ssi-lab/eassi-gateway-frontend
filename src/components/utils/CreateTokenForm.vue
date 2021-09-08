@@ -147,11 +147,11 @@ export default {
       callbackUrl: "http://jwt.io?token=",
       requestType: "",
       predicates: {
-        "old_enough": {
-          "name": "Date_of_birth",
-          "p_type": "<=",
-          "p_value": 20010101
-        }
+        old_enough: {
+          name: "Date_of_birth",
+          p_type: "<=",
+          p_value: 20010101,
+        },
       },
       data: {},
       token: "",
@@ -307,7 +307,8 @@ export default {
 </script>
 
 <style scoped>
-.data-input, .predicates-input {
+.data-input,
+.predicates-input {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 }
