@@ -223,6 +223,16 @@ export default {
           data.data = this.data;
         }
 
+        if (!this.isIssueRequest) {
+          data.predicates = {
+            old_enough: {
+              name: "Date_of_birth",
+              p_type: "<=",
+              p_value: 20000102,
+            },
+          };
+        }
+
         const result = await axios.post(
           `/api/utils/jwt/${this.organizationId}`,
           data
