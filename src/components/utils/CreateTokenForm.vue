@@ -78,6 +78,23 @@
       </b-form-group>
 
       <b-form-group
+        v-show="requestType == 'credential-verify-request'"
+        label="Request predicates"
+        description="Credential predicates used for verify requests."
+        invalid-feedback="Please enter valid JSON"
+        :state="predicatesState"
+      >
+        <b-form-textarea
+          class="predicates-input"
+          :value="JSON.stringify(predicates, null, 2)"
+          required
+          rows="6"
+          :state="predicatesState"
+          @input="updatePredicates"
+        ></b-form-textarea>
+      </b-form-group>
+
+      <b-form-group
         v-show="requestType == 'credential-issue-request'"
         label="Request data"
         description="Credential data used for issue requests."
@@ -129,10 +146,18 @@ export default {
       organizationId: 1,
       callbackUrl: "http://jwt.io?token=",
       requestType: "",
+      predicates: {
+        "old_enough": {
+          "name": "Date_of_birth",
+          "p_type": "<=",
+          "p_value": 20010101
+        }
+      },
       data: {},
       token: "",
       organizationsLoaded: false,
       organizations: [],
+      predicatesState: null,
       dataState: null,
       busy: false,
     };
@@ -224,13 +249,7 @@ export default {
         }
 
         if (!this.isIssueRequest) {
-          data.predicates = {
-            old_enough: {
-              name: "Date_of_birth",
-              p_type: "<=",
-              p_value: 20000102,
-            },
-          };
+          data.predicates = this.predicates;
         }
 
         const result = await axios.post(
@@ -245,6 +264,20 @@ export default {
       setTimeout(() => {
         this.busy = false;
       }, 300);
+    },
+    updatePredicates(newPredicates) {
+      console.log("Got predicates", newPredicates);
+      try {
+        const predicates = JSON.parse(newPredicates);
+        console.log(this.predicates, predicates);
+        if (predicates) {
+          this.predicatesState = null;
+          this.predicates = predicates;
+        }
+      } catch (e) {
+        this.predicatesState = false;
+        return;
+      }
     },
     updateData(newData) {
       console.log("Got data", newData);
@@ -274,7 +307,7 @@ export default {
 </script>
 
 <style scoped>
-.data-input {
+.data-input, .predicates-input {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 }
