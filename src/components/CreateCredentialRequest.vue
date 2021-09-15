@@ -53,6 +53,12 @@ export default {
   created() {
     setTimeout(this.performRequest.bind(this), WAIT_TIME);
   },
+  updated() {
+    // Automatically make selection is there's only one available connector
+    if (this.availableConnectors.length == 1) {
+      this.emitChoice(this.availableConnectors[0]);
+    }
+  },
   methods: {
     async performRequest() {
       try {
