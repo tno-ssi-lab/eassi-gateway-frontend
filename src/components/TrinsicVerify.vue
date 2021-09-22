@@ -9,9 +9,13 @@
 
 <script>
 import axios from "axios";
+import TrinsicConnectionModal from "./TrinsicConnectionModal.vue";
 
 export default {
   name: "TrinsicVerify",
+  components: {
+    TrinsicConnectionModal,
+  },
   props: {
     requestId: {
       type: String,

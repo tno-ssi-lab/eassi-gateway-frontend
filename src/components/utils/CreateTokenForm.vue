@@ -50,6 +50,16 @@
           <h6>Attributes</h6>
           <p v-text="type.indySchema.attributes"></p>
         </div>
+
+        <div v-if="type.trinsicSchema">
+          <h5>Trinsic credential</h5>
+          <h6>Schema</h6>
+          <p v-text="type.trinsicSchema.trinsicSchemaId"></p>
+          <h6>Credential Definition</h6>
+          <p v-text="type.trinsicSchema.trinsicCredentialDefinitionId"></p>
+          <h6>Attribute Names</h6>
+          <p v-text="type.trinsicSchema.attributeNames"></p>
+        </div>
       </div>
 
       <b-form-group
@@ -93,9 +103,7 @@
           <b-spinner small></b-spinner>
           Processing...
         </div>
-        <div v-else>
-          Submit
-        </div>
+        <div v-else>Submit</div>
       </b-button>
     </b-form>
 
