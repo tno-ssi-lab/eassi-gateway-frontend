@@ -2,22 +2,22 @@
   <div>
     <b-form @submit.prevent="defineIdaType">
       <b-form-group
-        label="IDA Type Name"
-        description="User-friendly name for the new IDA type."
+        label="Datakeeper Type Name"
+        description="User-friendly name for the new Datakeeper type."
       >
         <b-form-input v-model="idaTypeName" required></b-form-input>
         <b-alert v-if="idaTypeNameExists" show variant="primary"
-          >An IDA type with this name already exists</b-alert
+          >A Datakeeper type with this name already exists</b-alert
         >
       </b-form-group>
 
       <b-form-group
-        label="IDA Type Context"
-        description="Context for the new IDA type."
+        label="Datakeeper Type Context"
+        description="Context for the new Datakeeper type."
       >
         <b-form-input v-model="idaTypeContext" required></b-form-input>
         <b-alert v-if="idaTypeContextExists" show variant="primary"
-          >An IDA type with this context already exists</b-alert
+          >A Datakeeper type with this context already exists</b-alert
         >
       </b-form-group>
 
@@ -98,7 +98,7 @@ export default {
   methods: {
     checkTypeNameExists(value) {
       if (this.idaTypes.find((jt) => jt.name === value)) {
-        console.log("An IDA type with this name already exists");
+        console.log("A Datakeeper type with this name already exists");
         this.idaTypeNameExists = true;
       } else {
         this.idaTypeNameExists = false;
@@ -106,7 +106,7 @@ export default {
     },
     checkTypeExists(value) {
       if (this.idaTypes.find((jt) => jt.type === value)) {
-        console.log("This IDA type already exists");
+        console.log("This Datakeeper type already exists");
         this.idaTypeExists = true;
       } else {
         this.idaTypeExists = false;

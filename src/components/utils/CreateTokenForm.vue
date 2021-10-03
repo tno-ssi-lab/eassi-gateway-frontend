@@ -37,7 +37,7 @@
         </div>
 
         <div v-if="type.idaType">
-          <h5>Ida credential</h5>
+          <h5>Datakeeper credential</h5>
           <h6>Attributes</h6>
           <p v-text="type.idaType.attributes"></p>
         </div>

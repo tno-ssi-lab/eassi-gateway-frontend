@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Define IDA Type</h1>
+    <h1>Define Datakeeper Type</h1>
     <define-ida-type-form></define-ida-type-form>
   </div>
 </template>
