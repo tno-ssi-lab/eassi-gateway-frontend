@@ -43,8 +43,8 @@
       </div>
 
       <b-form-group
-        label="IDA Credential"
-        description="The IDA type to associate with the new credential type."
+        label="Datakeeper Credential"
+        description="The Datakeeper type to associate with the new credential type."
       >
         <b-form-select
           v-model="idaCredentialTypeId"
@@ -172,7 +172,7 @@ export default {
     },
     idaTypeChoices() {
       if (!this.idaTypesLoaded) {
-        return [{ value: null, text: "Loading Ida types..." }];
+        return [{ value: null, text: "Loading Datakeeper types..." }];
       }
       return this.idaTypes.map((jt) => {
         return { value: jt.id, text: `${jt.name} (${jt.id})` };

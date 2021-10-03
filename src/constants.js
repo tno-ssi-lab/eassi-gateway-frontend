@@ -31,7 +31,7 @@ export const CONNECTORS = [
   },
   {
     name: "ida",
-    title: "IDA",
+    title: "Datakeeper",
     walletProviderUrl: "https://rabobank.nl/",
     imageUrl: require("./assets/connector-ida-logo.png"),
     appleDownloadUrl:

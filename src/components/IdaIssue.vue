@@ -2,7 +2,7 @@
   <div class="ida-issue">
     <b-modal
       :visible="showModal"
-      title="Please scan the QR code with your IDA Wallet"
+      title="Please scan the QR code with your Datakeeper Wallet"
       size="lg"
       cancel-variant="danger"
       no-close-on-esc
