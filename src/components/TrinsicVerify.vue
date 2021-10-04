@@ -3,6 +3,7 @@
     <trinsic-connection-modal
       v-if="!connectionId"
       @connection-id="handleVerifyRequest"
+      v-on="{ cancel }"
     ></trinsic-connection-modal>
   </div>
 </template>
@@ -44,6 +45,10 @@ export default {
           this.$emit("update", "ready");
         })
         .catch(() => this.$emit("error"));
+    },
+    cancel() {
+      console.log("cancel()");
+      this.$emit("cancel");
     },
   },
 };

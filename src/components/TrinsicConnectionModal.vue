@@ -59,7 +59,7 @@ export default {
         .then((response) => {
           console.log("Backend created invitation", response);
           this.fetchNewId = true;
-          this.connectionId = response.data.invitation.identifier;
+          this.connectionId = response.data.invitation.connectionId;
           this.qr = response.data.qr;
         })
         .catch(() => this.$emit("error"));
