@@ -186,6 +186,7 @@ export default {
       this.status = "cancelled";
     },
     error() {
+      console.log('cancel()')
       this.$socket.client.emit("request-error", this.requestId);
       this.status = "error";
     },
