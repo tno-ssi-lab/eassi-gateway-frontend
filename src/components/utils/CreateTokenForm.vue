@@ -95,6 +95,23 @@
       </b-form-group>
 
       <b-form-group
+        v-show="requestType == 'credential-verify-request'"
+        label="Request attributes"
+        description="Credential attributes used for verify requests."
+        invalid-feedback="Please enter valid JSON"
+        :state="predicatesState"
+      >
+        <b-form-textarea
+          class="attributes-input"
+          :value="JSON.stringify(attributes, null, 2)"
+          required
+          rows="6"
+          :state="attributesState"
+          @input="updateAttributes"
+        ></b-form-textarea>
+      </b-form-group>
+
+      <b-form-group
         v-show="requestType == 'credential-issue-request'"
         label="Request data"
         description="Credential data used for issue requests."
@@ -146,6 +163,7 @@ export default {
       organizationId: 1,
       callbackUrl: "http://jwt.io?token=",
       requestType: "",
+      attributes: [],
       predicates: {
         old_enough: {
           name: "Date_of_birth",
@@ -249,6 +267,7 @@ export default {
         }
 
         if (!this.isIssueRequest) {
+          data.attributes = this.attributes;
           data.predicates = this.predicates;
         }
 
@@ -264,6 +283,21 @@ export default {
       setTimeout(() => {
         this.busy = false;
       }, 300);
+    },
+    updateAttributes(newAttributes) {
+      console.log("Got attributes", newAttributes);
+      try {
+        const attributes = JSON.parse(newAttributes);
+        console.log(this.attributes, attributes);
+        if (attributes) {
+          console.log(attributes);
+          this.attributesState = null;
+          this.attributes = attributes;
+        }
+      } catch (e) {
+        this.attributesState = false;
+        return;
+      }
     },
     updatePredicates(newPredicates) {
       console.log("Got predicates", newPredicates);
@@ -308,6 +342,7 @@ export default {
 
 <style scoped>
 .data-input,
+.attributes-input
 .predicates-input {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
