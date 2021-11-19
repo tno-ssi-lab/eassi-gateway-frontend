@@ -34,8 +34,16 @@ export const CONNECTORS = [
     title: "IDA",
     walletProviderUrl: "https://rabobank.nl/",
     imageUrl: require("./assets/connector-ida-logo.png"),
-    appleDownloadUrl:
-      "https://apps.apple.com/nl/app/ida/id1546059184",
+    appleDownloadUrl: "https://apps.apple.com/nl/app/ida/id1546059184",
+    googleDownloadUrl:
+      "https://play.google.com/store/apps/details?id=nl.rabobank.ida",
+  },
+  {
+    name: "gataca",
+    title: "Gataca",
+    walletProviderUrl: "https://rabobank.nl/",
+    imageUrl: require("./assets/connector-ida-logo.png"),
+    appleDownloadUrl: "https://apps.apple.com/nl/app/ida/id1546059184",
     googleDownloadUrl:
       "https://play.google.com/store/apps/details?id=nl.rabobank.ida",
   },

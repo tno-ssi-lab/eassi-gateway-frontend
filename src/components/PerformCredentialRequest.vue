@@ -36,6 +36,7 @@ import IndyIssue from "./IndyIssue.vue";
 import IndyVerify from "./IndyVerify.vue";
 import IdaIssue from "./IdaIssue.vue";
 import IdaVerify from "./IdaVerify.vue";
+import GatacaVerify from "./GatacaVerify.vue";
 
 const componentMap = {
   jolocom: {
@@ -52,6 +53,9 @@ const componentMap = {
   ida: {
     issue: IdaIssue,
     verify: IdaVerify,
+  },
+  gataca: {
+    verify: GatacaVerify,
   },
 };
 
