@@ -5,6 +5,8 @@
       ref="gatacaQr"
       qr-modal-title="Please scan the QR code"
       qr-modal-description="Scan with your Gataca Wallet app"
+      button-text="Start process"
+      as-button="true"
     >
     </gataca-qr>
   </div>
