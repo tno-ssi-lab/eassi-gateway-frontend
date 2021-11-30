@@ -33,7 +33,7 @@ export default {
       this.connectionId = connectionId;
       axios
         .post(
-          `/api/connectors/trinsic/verify`,
+          `/api/verify/trinsic/verify`,
           { identifier: connectionId },
           {
             params: {
