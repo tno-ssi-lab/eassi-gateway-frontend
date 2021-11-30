@@ -64,7 +64,7 @@ export default {
                   connector: "trinsic",
                 });
               } else {
-                //this.$emit("cancel");
+                this.$emit("cancel");
               }
             })
             .catch(() => this.$emit("error"));
