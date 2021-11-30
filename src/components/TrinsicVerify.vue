@@ -43,7 +43,6 @@ export default {
         )
         .then((response) => {
           this.$emit("update", "ready");
-          console.log(response);
 
           axios
             .post(

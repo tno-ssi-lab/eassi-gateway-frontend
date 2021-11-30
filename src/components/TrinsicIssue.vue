@@ -41,8 +41,33 @@ export default {
             },
           }
         )
-        .then(() => {
+        .then((response) => {
           this.$emit("update", "ready");
+
+          console.log(response);
+          axios
+            .post(
+              `/api/issue/trinsic/issuereponse`,
+              { response },
+              {
+                params: {
+                  issueRequestId: this.requestId,
+                },
+              }
+            )
+            .then((response) => {
+              console.log(response);
+              if (response.data === "Issued") {
+                this.status = "success";
+                this.$emit("success", {
+                  requestId: this.requestId,
+                  connector: "trinsic",
+                });
+              } else {
+                //this.$emit("cancel");
+              }
+            })
+            .catch(() => this.$emit("error"));
         })
         .catch(() => this.$emit("error"));
     },
