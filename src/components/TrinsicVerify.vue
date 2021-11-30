@@ -41,8 +41,24 @@ export default {
             },
           }
         )
-        .then(() => {
+        .then((response) => {
           this.$emit("update", "ready");
+          console.log(response);
+
+          axios
+            .post(
+              `/api/verify/trinsic/disclose`,
+              { response },
+              {
+                params: {
+                  verifyRequestId: this.requestId,
+                },
+              }
+            )
+            .then((response) => {
+              console.log("Backend handled trinsic verify", response);
+            })
+            .catch(() => this.$emit("error"));
         })
         .catch(() => this.$emit("error"));
     },
