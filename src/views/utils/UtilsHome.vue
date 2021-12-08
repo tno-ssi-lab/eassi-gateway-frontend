@@ -42,10 +42,37 @@
           Define Jolocom credential types.
         </p>
       </li>
+      <li>
+        <router-link :to="{ name: 'DefineIndySchema' }"
+          ><strong>Indy schemas</strong></router-link
+        >
+        <br />
+        <p>
+          Define Indy credential schemas.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineIdaType' }"
+          ><strong>Datakeeper types</strong></router-link
+        >
+        <br />
+        <p>
+          Define Datakeeper credential types.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineTrinsicSchema' }"
+          ><strong>Trinsic schemas</strong></router-link
+        >
+        <br />
+        <p>
+          Define Trinsic credential schemas.
+        </p>
+      </li>
     </ul>
     <p>
       A more detailed description on how to work with the service can be found
-      <a href="https://gitlab.com/digicampus/ssi/ssi-service-provider/developer-docs"
+      <a href="https://ssi-lab.nl/docs/about"
         >here</a
       >.
     </p>
