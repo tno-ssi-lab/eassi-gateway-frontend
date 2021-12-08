@@ -29,7 +29,7 @@
       >
         <b-form-select
           v-model="jolocomCredentialTypeId"
-          :options="jolocomTypeChoices"
+          :options="[{value: null, text: ''}, ...jolocomTypeChoices]"
           :disabled="!jolocomTypesLoaded"
         ></b-form-select>
       </b-form-group>
@@ -48,7 +48,7 @@
       >
         <b-form-select
           v-model="idaCredentialTypeId"
-          :options="idaTypeChoices"
+          :options="[{value: null, text: ''}, ...idaTypeChoices]"
           :disabled="!idaTypesLoaded"
         ></b-form-select>
       </b-form-group>
@@ -77,7 +77,7 @@
       >
         <b-form-select
           v-model="indySchemaId"
-          :options="indySchemaChoices"
+          :options="[{value: null, text: ''}, ...indySchemaChoices]"
           :disabled="!indySchemasLoaded"
         ></b-form-select>
       </b-form-group>
@@ -99,7 +99,7 @@
       >
         <b-form-select
           v-model="trinsicSchemaId"
-          :options="trinsicSchemaChoices"
+          :options="[{value: null, text: ''}, ...trinsicSchemaChoices]"
           :disabled="!trinsicSchemasLoaded"
         ></b-form-select>
       </b-form-group>
