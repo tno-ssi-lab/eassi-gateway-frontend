@@ -1,6 +1,15 @@
 <template>
   <div class="utils-home">
     <h1>Utils overview</h1>
+    <p>Here, you can register a new organization, define credential types, and manually create issue and verify requests for testing purposes. To get started with issuing and verifying credentials you need the following:</p>
+    <ol>
+      <li>Registration with the service</li>
+      <li>Wallet/protocol-specific credential definitions of the credential(s) you want to issue</li>
+      <li>A mapping of organization-specific credential types to wallet/protocol-specific ones</li>
+    </ol>
+
+    <hr />
+
     <p>We currently offer the following utilities:</p>
     <ul>
       <li>
