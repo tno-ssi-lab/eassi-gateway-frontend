@@ -7,6 +7,6 @@ module.exports = {
         changeOrigin: true,
       },
     },
-    allowedHosts: [".eu.ngrok.io", "localhost"],
+    allowedHosts: [".gitpod.io", ".eu.ngrok.io", "localhost"],
   },
 };
