@@ -1,16 +1,14 @@
 <template>
   <div class="gataca-verify">
-    <gataca-session v-once></gataca-session>
+    <gataca-session
+      @error="$emit('error')"       
+      @result="handleResult"
+      v-once
+    ></gataca-session>
   </div>
 </template>
 
 <script>
-// :jwt="jwt"
-// :server="server"
-// @result="handleResult"
-// @cancel="$emit('cancel')"
-// @error="$emit('error')"
-
 import axios from "axios";
 import GatacaSession from "./GatacaSession.vue";
 
@@ -20,28 +18,20 @@ export default {
     GatacaSession,
   },
   props: {
-    // jwt: {
-    //   type: String,
-    //   required: true,
-    // },
-    // server: {
-    //   type: String,
-    //   required: true,
-    // },
     requestId: {
       type: String,
       required: true,
     },
   },
   methods: {
-    handleResult(resultJwt) {
+    handleResult(result) {
       this.$emit("update", "handling");
-      console.log(resultJwt);
+      console.log(result);
 
       axios
         .post(
-          `/api/verify/irma/disclose`,
-          { jwt: resultJwt },
+          `/api/verify/gataca/disclose`,
+          result,
           {
             params: {
               verifyRequestId: this.requestId,
@@ -49,7 +39,7 @@ export default {
           }
         )
         .then((response) => {
-          console.log("Backend handled jwt", response);
+          console.log("Backend handled result", response);
         })
         .catch(() => this.$emit("error"));
     },

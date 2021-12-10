@@ -118,15 +118,13 @@ export default {
         : RESULT_STATUS.FAILED;
     },
     // eslint-disable-next-line no-unused-vars
-    async successCallback(data, token) {
-      console.log(data, token);
-      alert(
-        "LOGIN OK: " + this.$refs.gatacaQr.sessionData["[CREDENTIAL_TYPE]"]
-      ); //e.g. email. The session data has mapped the required credentials. You can invoke whichever you need here, depending on what you requested on the tenant configuration.
+    async successCallback() {
+      console.log("Got result")
+      this.$emit("result", this.$refs.gatacaQr.sessionData);
     },
     async errorCallback(...errors) {
-      console.log(errors);
-      alert("Wrong credentials!");
+      console.log("Got error");
+      this.$emit("error", errors);
     },
   },
 };
