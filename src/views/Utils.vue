@@ -5,7 +5,7 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-navbar-nav>
-        <b-nav-item :to="{ name: 'UtilsHome' }">Utils overview</b-nav-item>
+        <b-nav-item :to="{ name: 'UtilsHome' }">Service Guide</b-nav-item>
         <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
         <b-nav-item :to="{ name: 'RegisterOrganization' }">Apps</b-nav-item>
         <b-nav-item :to="{ name: 'DefineCredentialType' }">
