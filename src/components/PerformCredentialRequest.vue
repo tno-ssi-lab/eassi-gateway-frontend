@@ -160,6 +160,8 @@ export default {
     setupSocketConnection() {
       console.log("Connecting to socket", this.requestId);
       this.$socket.client.emit("request-started", this.requestId);
+
+      this.$socket.client.on("connect_error", (err) => {  console.log(`connect_error due to ${err.message}`);});
     },
     async performRequest() {
       try {
