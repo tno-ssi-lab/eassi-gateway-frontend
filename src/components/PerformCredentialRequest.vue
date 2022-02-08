@@ -36,6 +36,8 @@ import IndyIssue from "./IndyIssue.vue";
 import IndyVerify from "./IndyVerify.vue";
 import IdaIssue from "./IdaIssue.vue";
 import IdaVerify from "./IdaVerify.vue";
+import TrinsicIssue from "./TrinsicIssue.vue";
+import TrinsicVerify from "./TrinsicVerify.vue";
 
 const componentMap = {
   jolocom: {
@@ -52,6 +54,10 @@ const componentMap = {
   ida: {
     issue: IdaIssue,
     verify: IdaVerify,
+  },
+  trinsic: {
+    issue: TrinsicIssue,
+    verify: TrinsicVerify,
   },
 };
 
@@ -181,6 +187,7 @@ export default {
       this.status = "cancelled";
     },
     error() {
+      console.log('cancel()')
       this.$socket.client.emit("request-error", this.requestId);
       this.status = "error";
     },

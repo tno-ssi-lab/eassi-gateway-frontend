@@ -23,14 +23,15 @@
     <p>
       For information on how to integrate with our service, please refer to our
       documentation
-      <a href="https://gitlab.com/digicampus/ssi/ssi-service-provider/developer-docs">here</a>.
+      <a href="https://ssi-lab.nl/docs/about">here</a>.
     </p>
     <p>
       To quickly try out different aspects of the service, we encourage you to experiment with the
       SSI service by using the link below. Here, you can register a new app, define credential
       types, and manually create issue and verify requests for testing purposes.
-      If you know what you are doing, you can go to the issue or verify page
-      directly.
+      If you know what you are doing, you can perform all registrations and definitions with the 
+      service directly using the API, and generate the requisite JWTs and go to the issue or verify 
+      page directly.
     </p>
     <ul>
       <li>
@@ -43,7 +44,7 @@
         <router-link to="/verify/someToken">Verify credential API</router-link>
       </li>
       <li>
-        <a href="https://catalogue.ssi-lab.nl">Credential Catalogue service</a>
+        <a href="https://catalogue.ssi-lab.nl">Credential Catalogue service</a> <em>(demonstrator)</em>
       </li>
     </ul>
 
