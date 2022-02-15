@@ -19,7 +19,8 @@
         </b-form-group>
 
         <div>
-          <b-button block variant="primary" @click="getConnection">
+          <!-- <b-button block variant="primary" @click="getConnection"> -->
+          <b-button block variant="primary" @click="fetchNewId = !fetchNewId">
             I don't have a connection id yet
           </b-button>
         </div>
@@ -35,6 +36,12 @@
           Your connection id is:
           <strong class="connection-id" v-text="connectionId"></strong>
         </p>
+
+        <div>
+          <b-button block variant="primary" @click="fetchNewId = !fetchNewId">
+            I already have a connection id
+          </b-button>
+        </div>
       </div>
     </b-modal>
   </div>
@@ -65,6 +72,10 @@ export default {
         .catch(() => this.$emit("error"));
     },
   },
+  mounted() {
+    // Default: assume that a new connection id is required
+    this.getConnection()
+  }
 };
 </script>
 
