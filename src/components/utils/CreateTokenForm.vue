@@ -90,8 +90,8 @@
       <b-form-group
         v-show="requestType == 'credential-verify-request'"
         label="Request predicates"
-        description="Credential predicates used for verify requests."
-        invalid-feedback="Please enter valid JSON"
+        description='[Optional] Credential predicates used for verify requests. Format: {"old_enough":{"name":"Date_of_birth","p_type": "<=","p_value": 20010101}}'
+        invalid-feedback='Please enter valid JSON.'
         :state="predicatesState"
       >
         <b-form-textarea
@@ -107,9 +107,9 @@
       <b-form-group
         v-show="requestType == 'credential-verify-request'"
         label="Request attributes"
-        description="Credential attributes used for verify requests."
-        invalid-feedback="Please enter valid JSON"
-        :state="predicatesState"
+        description='[Optional] A json formatted array of attributes used for verify requests, format: ["attr1", "attr2"].'
+        invalid-feedback="Please enter valid JSON."
+        :state="attributesState"
       >
         <b-form-textarea
           class="attributes-input"
@@ -172,18 +172,13 @@ export default {
       callbackUrl: "http://jwt.io?token=",
       requestType: "",
       attributes: [],
-      predicates: {
-        old_enough: {
-          name: "Date_of_birth",
-          p_type: "<=",
-          p_value: 20010101,
-        },
-      },
+      predicates: {},
       data: {},
       token: "",
       organizationsLoaded: false,
       organizations: [],
       predicatesState: null,
+      attributesState: null,
       dataState: null,
       busy: false,
     };
