@@ -1,17 +1,27 @@
 <template>
   <div class="utils-home">
     <h1>Service Guide</h1>
-    <p>To use the full functionality of the eassi service, the following steps should be walked through:</p>
+    <p>
+      Here, you can manually set up and use TNO EASSI to create issue and verify requests for
+      testing purposes. To get started, please follow these steps to use custom credentials, or
+      check out the demo flows below for issuing or verifying a predefined credential.
+    </p>
     <ol>
-      <li>Register your organization in the <a href="https://service.ssi-lab.nl/utils/organizations">Apps</a> tab, see the <a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/register-organization">documentation</a>.</li>
-      <li>Define what information should be present in the request. This can be done for any of the supported wallets, Jolocom (<a href="https://service.ssi-lab.nl/utils/jolocom-types">service</a>, <a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/define-jolocom-types">documentation</a>), Esatus (<a href="https://service.ssi-lab.nl/utils/indy-schemas">service</a>, <a href="https://ssi-lab.nl/docs/service-instructions/utils/define-indy-schemas">documentation</a>, Datakeeper (<a href="https://service.ssi-lab.nl/utils/ida-types">service</a>, <a href="https://ssi-lab.nl/docs/service-instructions/utils/define-datakeeper-types">documentation</a>) and Trinsic (<a href="https://service.ssi-lab.nl/utils/trinsic-schemas">service</a>, <a href="https://ssi-lab.nl/docs/service-instructions/utils/define-trinsic-schemas">documentation</a>).</li>
-      <li>Define what information the request is about for which wallet(s) in the <a href="https://service.ssi-lab.nl/utils/credential-types">Credential types</a> tab, see the <a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/define-credential-mapping">documentation</a>.</li>
-      <li>Create a token for the request that can be scanned to open the wallet in the <a href="https://service.ssi-lab.nl/utils/create-token">Create token</a> tab, see the <a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/create-token">documentation</a>.</li>
+      <li>Register your organization in the <router-link :to="{ name: 'RegisterOrganization' }">Organizations</router-link><sup><a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/register-organization">[?]</a></sup> tab.</li>
+      <li>Create wallet/protocol-specific credential definitions of the credential(s) you want to issue. This can be done for <router-link :to="{ name: 'DefineJolocomType' }">Jolocom</router-link><sup><a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/define-jolocom-types">[?]</a></sup>, <router-link :to="{ name: 'DefineIndySchema' }">Esatus</router-link><sup><a href="https://ssi-lab.nl/docs/service-instructions/utils/define-indy-schemas">[?]</a></sup>, <router-link :to="{ name: 'DefineIdaType' }">Datakeeper</router-link><sup><a href="https://ssi-lab.nl/docs/service-instructions/utils/define-datakeeper-types">[?]</a></sup>, and <router-link :to="{ name: 'DefineTrinsicSchema' }">Trinsic</router-link><sup><a href="https://ssi-lab.nl/docs/service-instructions/utils/define-trinsic-schemas">[?]</a></sup>.</li>
+      <li>Define the <router-link :to="{ name: 'DefineCredentialType' }">Credential types</router-link><sup><a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/define-credential-mapping">[?]</a></sup> you want to use. These are mappings of organization-specific credential types to wallet/protocol-specific ones, basically telling the service which wallets are allowed for any particular request.</li>
+      <li>Finally, test the issuing and/or verifying of credentials in the <router-link :to="{ name: 'CreateToken' }">Create token</router-link><sup><a href="https://eassi.ssi-lab.nl/docs/service-instructions/utils/create-token">[?]</a></sup> tab. Here, a JWT can be generated that will relay to the service all information required to handle the issue/verify request when the user is redirected to the portal.</li>
     </ol>
+    <p>
+      A more detailed description on how to work with the service can be found
+      <a href="https://ssi-lab.nl/docs/about"
+        >here</a
+      >.
+    </p>
    
     <hr />
     <h2>Short Demo</h2>
-    <p>Go to the <a href="https://service.ssi-lab.nl/utils/create-token">create token</a> tab. Here you can issue and verify credentials of a user. We will now show step by step how to perform each of these actions.</p>
+    <p>Go to the <a href="https://service.ssi-lab.nl/utils/create-token">create token</a> tab. Here you can issue credentials to, or verify credentials from a user. We will now show step by step how to perform each of these actions.</p>
 
     <h3>Issuing of Credentials</h3>
     <p>The issue request is made based on the following fields:</p>
@@ -23,7 +33,7 @@
       <li><i>Request data:</i> the information that is needed for the credential. Fill in your information here.</li>
       <li>Click <i>submit</i>.</li>
       <li>Click on <i>go to issue page</i> on the bottom. </li>
-      <li>Pick a wallet you want to store the credential in. The wallets that are available (in white) are the wallets that the credential is defined for. Note that the credential is defined for IRMA, but we are not allowed to issue credentials for IRMA. A QR-code will be shown that you can scan with the wallet of your choice.</li>
+      <li>Pick the wallet you want to store the credential in. Note that any wallets that are unavailable will be greyed out (this is the case for IRMA despite it being included in the credential definition, because at this time we can only verify IRMA credentials). A QR-code will be shown that you can scan with the corresponding wallet on your phone.</li>
       <li>Now, the issued credential will be shown in your wallet.</li>
     </ol>
 
@@ -36,8 +46,80 @@
       <li>Pick <i>CredentialVerifyRequest</i>, as we are verifying a credential.</li>
       <li>Click <i>submit</i>.</li>
       <li>Click on <i>go to issue page</i> on the bottom. </li>
-      <li>Pick a wallet you want to use to provide the credential with. The wallets that are available (in white) are the wallets that the credential is defined for. A QR-code will be shown that you can scan with the wallet of your choice.</li>
+      <li>Pick a wallet you want to use to provide the credential (any unavailable wallets will be greyed out). A QR-code will be shown that you can scan with the corresponding wallet on your phone.</li>
     </ol>
+
+    <hr />
+    <h2>Utils overview</h2>
+    <p>We currently offer the following utilities:</p>
+    <ul>
+      <li>
+        <router-link :to="{ name: 'CreateToken' }"
+          ><strong>Create token</strong></router-link
+        >
+        <br />
+        <p>
+          Create tokens for testing the issuance and verification of
+          credentials.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'RegisterOrganization' }"
+          ><strong>Apps</strong></router-link
+        >
+        <br />
+        <p>
+          Register your organization. This allows you to issue and verify credentials
+          using our SSI service.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineCredentialType' }"
+          ><strong>Credential types</strong></router-link
+        >
+        <br />
+        <p>
+          Define a mapping of organization specific credential types to general
+          credential types (e.g. Irma, Jolocom, ...).
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineJolocomType' }"
+          ><strong>Jolocom types</strong></router-link
+        >
+        <br />
+        <p>
+          Define Jolocom credential types.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineIndySchema' }"
+          ><strong>Indy schemas</strong></router-link
+        >
+        <br />
+        <p>
+          Define Indy credential schemas.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineIdaType' }"
+          ><strong>Datakeeper types</strong></router-link
+        >
+        <br />
+        <p>
+          Define Datakeeper credential types.
+        </p>
+      </li>
+      <li>
+        <router-link :to="{ name: 'DefineTrinsicSchema' }"
+          ><strong>Trinsic schemas</strong></router-link
+        >
+        <br />
+        <p>
+          Define Trinsic credential schemas.
+        </p>
+      </li>
+    </ul>
     
   </div>
 </template>

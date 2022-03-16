@@ -1,13 +1,13 @@
 <template>
   <div class="utils">
     <b-navbar>
-      <b-navbar-brand :to="{ name: 'Home' }">TNO SSI Provider</b-navbar-brand>
+      <b-navbar-brand :to="{ name: 'Home' }">TNO EASSI</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-navbar-nav>
         <b-nav-item :to="{ name: 'UtilsHome' }">Service Guide</b-nav-item>
         <b-nav-item :to="{ name: 'CreateToken' }">Create token</b-nav-item>
-        <b-nav-item :to="{ name: 'RegisterOrganization' }">Apps</b-nav-item>
+        <b-nav-item :to="{ name: 'RegisterOrganization' }">Organizations</b-nav-item>
         <b-nav-item :to="{ name: 'DefineCredentialType' }">
           Credential types
         </b-nav-item>

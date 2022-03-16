@@ -2,7 +2,7 @@
   <div>
     <b-form @submit.prevent="defineCredentialType">
       <b-form-group
-        label="App ID"
+        label="Organization ID"
         description="The app for which you want to define the credential type."
       >
         <b-form-select

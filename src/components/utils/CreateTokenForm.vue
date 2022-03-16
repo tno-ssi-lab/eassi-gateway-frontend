@@ -2,7 +2,7 @@
   <div class="create-token-form">
     <b-form @submit.prevent="createToken">
       <b-form-group
-        label="App ID"
+        label="Organization ID"
         description="The app for which you want to create a credential request."
       >
         <b-form-select
