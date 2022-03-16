@@ -21,12 +21,12 @@
    
     <hr />
     <h2>Short Demo</h2>
-    <p>Go to the <a href="https://service.ssi-lab.nl/utils/create-token">create token</a> tab. Here you can issue credentials to, or verify credentials from a user. We will now show step by step how to perform each of these actions.</p>
+    <p>Go to the <router-link :to="{ name: 'CreateToken' }">create token</router-link> tab. Here you can issue credentials to, or verify credentials from a user. We will now show step by step how to perform each of these actions.</p>
 
     <h3>Issuing of Credentials</h3>
     <p>The issue request is made based on the following fields:</p>
     <ol>
-      <li><i>App ID</i>: this is the name of an organization for which the credential issue request is made. Pick "namecredentialdemo (22)" here.</li>
+      <li><i>Organization ID</i>: this is the name of an organization for which the credential issue request is made. Pick "namecredentialdemo (22)" here.</li>
       <li><i>Credential type:</i> the type of credential you want to issue. Choose "FullnameCredential" here. This credential is defined for the Jolocom, Datakeeper, Esatus, IRMA and Trinsic wallet.</li>
       <li><i>Callback URL:</i> the website where you are redirected to after completion of the issuing process. You can leave this as is.</li>
       <li>Pick <i>CredentialIssueRequest</i>, as we are issuing a credential.</li>
@@ -40,7 +40,7 @@
     <h3>Verification of Credentials</h3>
     <p>The verification request is made based on the following fields:</p>
     <ol>
-      <li><i>App ID</i>: this is the name of an organization for which the credential issue request is made. Pick "namecredentialdemo (22)" here.</li>
+      <li><i>Organization ID</i>: this is the name of an organization for which the credential issue request is made. Pick "namecredentialdemo (22)" here.</li>
       <li><i>Credential type:</i> the type of credential you want to issue. Choose "FullnameCredential" here. This credential is defined for the Jolocom, Datakeeper, Esatus, IRMA and Trinsic wallet.</li>
       <li><i>Callback URL:</i> the website where you are redirected to after completion of the issuing process. You can leave this as is.</li>
       <li>Pick <i>CredentialVerifyRequest</i>, as we are verifying a credential.</li>
@@ -65,7 +65,7 @@
       </li>
       <li>
         <router-link :to="{ name: 'RegisterOrganization' }"
-          ><strong>Apps</strong></router-link
+          ><strong>Organizations</strong></router-link
         >
         <br />
         <p>

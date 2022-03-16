@@ -4,7 +4,7 @@
       <!-- <strong>TNO EASSI</strong>
       SSI Wallet Gateway -->
       TNO EASSI
-      <strong>An SSI Wallet Gateway</strong>
+      <strong>SSI Wallet Gateway</strong>
     </h1>
 
     <br>
