@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Register App</h1>
+    <h1>Register Organization</h1>
     <register-organization-form></register-organization-form>
   </div>
 </template>
