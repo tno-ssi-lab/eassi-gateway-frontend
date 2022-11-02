@@ -38,6 +38,8 @@ import IdaIssue from "./IdaIssue.vue";
 import IdaVerify from "./IdaVerify.vue";
 import TrinsicIssue from "./TrinsicIssue.vue";
 import TrinsicVerify from "./TrinsicVerify.vue";
+import WaltidIssue from "./WaltidIssue.vue";
+import WaltidVerify from "./WaltidVerify.vue";
 
 const componentMap = {
   jolocom: {
@@ -58,6 +60,10 @@ const componentMap = {
   trinsic: {
     issue: TrinsicIssue,
     verify: TrinsicVerify,
+  },
+  waltid: {
+    issue: WaltidIssue,
+    verify: WaltidVerify,
   },
 };
 

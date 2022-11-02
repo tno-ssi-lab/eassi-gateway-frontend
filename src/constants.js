@@ -49,4 +49,14 @@ export const CONNECTORS = [
     googleDownloadUrl:
       "https://play.google.com/store/apps/details?id=id.streetcred.apps.mobile",
   },
+  {
+    name: "waltid",
+    title: "Walt.id",
+    walletProviderUrl: "https://walt.id/",
+    imageUrl: require("./assets/connector-waltid-logo.jpg"),
+    appleDownloadUrl:
+      "",
+    googleDownloadUrl:
+      "",
+  },
 ];

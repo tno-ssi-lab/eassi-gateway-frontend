@@ -115,6 +115,13 @@
         <p v-text="trinsicSchema.attributeNames"></p>
       </div>
 
+      <b-form-group
+        label="Walt.id Credential"
+        description="The Walti.id type to associate with the new credential type."
+      >
+        <b-form-input v-model="waltidType"></b-form-input>
+      </b-form-group>
+
       <b-button type="submit" variant="primary" :disabled="busy">
         <div v-if="busy">
           <b-spinner small></b-spinner>
@@ -144,6 +151,7 @@ export default {
       jolocomCredentialTypeId: "",
       indySchemaId: "",
       trinsicSchemaId: "",
+      waltidType: "",
       definitionResponse: null,
       organizationsLoaded: false,
       organizations: [],
@@ -157,6 +165,8 @@ export default {
       idaTypes: [],
       trinsicSchemasLoaded: false,
       trinsicSchemas: [],
+      waltidTypesLoaded: false,
+      waltidTypes: [],
       busy: false,
     };
   },
@@ -332,6 +342,10 @@ export default {
 
         if (this.trinsicSchemaId) {
           data.trinsicSchemaId = this.trinsicSchemaId;
+        }
+
+        if (this.waltidType) {
+          data.waltidType = this.waltidType;
         }
 
         const result = await axios.post("/api/types", data);

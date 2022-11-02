@@ -66,6 +66,11 @@
           <h6>Attribute Names</h6>
           <p v-text="type.trinsicSchema.attributeNames"></p>
         </div>
+
+        <div v-if="type.waltidType">
+          <h5>Walt.id credential</h5>
+          <p v-text="type.waltidType"></p>
+        </div>
       </div>
 
       <b-form-group
