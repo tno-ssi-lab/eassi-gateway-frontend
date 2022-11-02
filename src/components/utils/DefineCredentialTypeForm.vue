@@ -115,12 +115,16 @@
         <p v-text="trinsicSchema.attributeNames"></p>
       </div>
 
-      <b-form-group
-        label="Walt.id Credential"
-        description="The Walti.id type to associate with the new credential type."
-      >
-        <b-form-input v-model="waltidType"></b-form-input>
-      </b-form-group>
+      <div v-if="waltidSchema" class="text-muted">
+        <h6>Schema ID</h6>
+        <p v-text="waltidSchema.trinsicSchemaId"></p>
+
+        <h6>CredDef ID</h6>
+        <p v-text="waltidSchema.waltidCredentialDefinitionId"></p>
+
+        <h6>Attributes</h6>
+        <p v-text="waltidSchema.attributeNames"></p>
+      </div>
 
       <b-button type="submit" variant="primary" :disabled="busy">
         <div v-if="busy">
