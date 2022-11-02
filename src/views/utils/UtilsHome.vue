@@ -119,6 +119,15 @@
           Define Trinsic credential schemas.
         </p>
       </li>
+      <li>
+        <router-link :to="{ name: 'DefineWaltidSchema' }"
+          ><strong>Walt.id schemas</strong></router-link
+        >
+        <br />
+        <p>
+          Define Walt.id credential schemas.
+        </p>
+      </li>
     </ul>
     
   </div>
