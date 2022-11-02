@@ -67,9 +67,14 @@
           <p v-text="type.trinsicSchema.attributeNames"></p>
         </div>
 
-        <div v-if="type.waltidType">
+        <div v-if="type.waltidSchema">
           <h5>Walt.id credential</h5>
-          <p v-text="type.waltidType"></p>
+          <h6>Schema</h6>
+          <p v-text="type.waltidSchema.waltidSchemaId"></p>
+          <h6>Credential Definition</h6>
+          <p v-text="type.waltidSchema.waltidCredentialDefinitionId"></p>
+          <h6>Attribute Names</h6>
+          <p v-text="type.waltidSchema.attributeNames"></p>
         </div>
       </div>
 
