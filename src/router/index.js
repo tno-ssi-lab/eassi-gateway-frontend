@@ -13,7 +13,7 @@ import DefineJolocomType from "../views/utils/DefineJolocomType.vue";
 import DefineIndySchema from "../views/utils/DefineIndySchema.vue";
 import DefineIdaType from "../views/utils/DefineIdaType.vue";
 import DefineTrinsicSchema from "../views/utils/DefineTrinsicSchema.vue";
-import DefineWaltidType from "../views/utils/DefineWaltidType.vue";
+import DefineWaltidType from "../views/utils/DefineWaltidSchema.vue";
 
 import CreateIssueRequest from "../views/CreateIssueRequest.vue";
 import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
@@ -77,8 +77,8 @@ const routes = [
         component: DefineTrinsicSchema,
       },
       {
-        path: "/utils/waltid-types",
-        name: "DefineWaltidType",
+        path: "/utils/waltid-schemas",
+        name: "DefineWaltidSchema",
         component: DefineWaltidType,
       },
     ],
