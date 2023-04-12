@@ -20,7 +20,7 @@
 import CreateCredentialRequest from "../components/CreateCredentialRequest.vue";
 
 export default {
-  name: "Issue",
+  name: "CreateIssueRequest",
   components: {
     CreateCredentialRequest,
   },
