@@ -13,7 +13,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Install all Packages
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Copy all other source code to work directory
 COPY . ./
