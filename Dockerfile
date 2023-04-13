@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:16-slim
 
 RUN npm install --global @vue/cli
 
@@ -22,4 +22,4 @@ ENV SSI_SERVER_URL=https://path/to/my/server
 
 EXPOSE 8080
 
-CMD [ "yarn", "run", "serve" ]
+CMD [ "yarn", "run", "dev"]

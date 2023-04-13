@@ -108,8 +108,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: process.env.NODE_ENV === "development" ? "hash" : "history", // FIXME history in production.
-  base: process.env.BASE_URL,
+  mode: import.meta.env.NODE_ENV === "development" ? "hash" : "history", // FIXME history in production.
+  base: import.meta.env.BASE_URL,
   routes,
 });
 
