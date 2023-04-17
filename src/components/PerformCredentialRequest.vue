@@ -29,15 +29,15 @@ import axios from "axios";
 
 import { CONNECTORS } from "../constants";
 import ConnectorImage from "./ConnectorImage.vue";
-import JolocomIssue from "./JolocomIssue.vue";
-import JolocomVerify from "./JolocomVerify.vue";
-import IrmaVerify from "./IrmaVerify.vue";
-import IndyIssue from "./IndyIssue.vue";
-import IndyVerify from "./IndyVerify.vue";
-import IdaIssue from "./IdaIssue.vue";
-import IdaVerify from "./IdaVerify.vue";
-import TrinsicIssue from "./TrinsicIssue.vue";
-import TrinsicVerify from "./TrinsicVerify.vue";
+import JolocomIssue from "./connectors/jolocom/JolocomIssue.vue";
+import JolocomVerify from "./connectors/jolocom/JolocomVerify.vue";
+import IrmaVerify from "./connectors/irma/IrmaVerify.vue";
+import IndyIssue from "./connectors/indy/IndyIssue.vue";
+import IndyVerify from "./connectors/indy/IndyVerify.vue";
+import IdaIssue from "./connectors/ida/IdaIssue.vue";
+import IdaVerify from "./connectors/ida/IdaVerify.vue";
+import TrinsicIssue from "./connectors/trinsic/TrinsicIssue.vue";
+import TrinsicVerify from "./connectors/trinsic/TrinsicVerify.vue";
 
 const componentMap = {
   jolocom: {
