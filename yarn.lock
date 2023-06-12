@@ -1452,6 +1452,13 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
+credential-handler-polyfill@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/credential-handler-polyfill/-/credential-handler-polyfill-3.2.0.tgz#231229dd4e3b9f5feae6256403d8f71f2c5ead4b"
+  integrity sha512-e6Pr6UySW/NLLq9nZG8xy47+IAClFOsWZTimbrqXCfoyed3h8Us3k5Nl7lsVe6twuwnUHg9wl/sMoRGdTsModg==
+  dependencies:
+    web-request-rpc "^2.0.2"
+
 cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -3080,6 +3087,11 @@ vue@^2.6.14:
   dependencies:
     "@vue/compiler-sfc" "2.7.14"
     csstype "^3.1.0"
+
+web-request-rpc@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/web-request-rpc/-/web-request-rpc-2.0.3.tgz#dfc1971cd11d95b4fe5e2976b1f3d1f3ca12d730"
+  integrity sha512-lKuY88iMVomXrgej6EK98fvvhgbk02uWAqFHynIvIDnURvA+kEO6rjLDbyZ7Odv4BpCo/+q44BNhgf7F76eIuA==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

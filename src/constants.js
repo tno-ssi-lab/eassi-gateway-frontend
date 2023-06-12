@@ -4,6 +4,7 @@ import indyImageUrl from '@/assets/connector-indy-logo.png';
 import idaImageUrl from '@/assets/connector-ida-logo.png';
 import trinsicImageUrl from '@/assets/connector-trinsic-logo.jpg';
 
+export const CHAPI = 'chapi'
 export const CONNECTORS = [
   {
     name: "jolocom",

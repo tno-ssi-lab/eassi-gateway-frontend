@@ -19,6 +19,9 @@ import CreateVerifyRequest from "../views/CreateVerifyRequest.vue";
 import PerformIssueRequest from "../views/PerformIssueRequest.vue";
 import PerformVerifyRequest from "../views/PerformVerifyRequest.vue";
 
+import PerformChapiIssue from "../views/PerformChapiIssue.vue";
+import PerformChapiVerify from "../views/PerformChapiVerify.vue";
+
 Vue.use(VueRouter);
 
 /**
@@ -78,6 +81,12 @@ const routes = [
     ],
   },
   {
+    path: "/issue/chapi/:token",
+    name: "PerformChapiIssue",
+    component: PerformChapiIssue,
+    props: true,
+  },
+  {
     path: "/issue/:connector/:requestId",
     name: "PerformIssueRequest",
     component: PerformIssueRequest,
@@ -87,6 +96,12 @@ const routes = [
     path: "/issue/:token",
     name: "CreateIssueRequest",
     component: CreateIssueRequest,
+    props: true,
+  },
+  {
+    path: "/verify/chapi/:token",
+    name: "PerformChapiVerify",
+    component: PerformChapiVerify,
     props: true,
   },
   {

@@ -2,6 +2,8 @@
   <div class="create-credential-request">
     <slot></slot>
 
+    <chapi-handler :token="token" :type="type" :request-id="requestId" />
+
     <b-overlay :show="status === 'loading'">
       <connector-select
         :enabled-connectors="availableConnectors"
@@ -15,6 +17,7 @@
 import axios from "axios";
 
 import ConnectorSelect from "./ConnectorSelect.vue";
+import ChapiHandler from "./ChapiHandler.vue";
 
 const WAIT_TIME = 200;
 
@@ -22,6 +25,7 @@ export default {
   name: "CredentialRequest",
   components: {
     ConnectorSelect,
+    ChapiHandler,
   },
   props: {
     token: {

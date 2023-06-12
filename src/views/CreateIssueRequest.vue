@@ -1,6 +1,10 @@
 <template>
   <div class="issue">
-    <create-credential-request :token="token" type="issue" @choice="handleChoice">
+    <create-credential-request
+      :token="token"
+      type="issue"
+      @choice="handleChoice"
+    >
       <div class="py-5 text-center">
         <h2>Select your Wallet app</h2>
         <p>
@@ -12,8 +16,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import CreateCredentialRequest from "../components/CreateCredentialRequest.vue";
+import { CHAPI } from "../constants";
 
 export default {
   name: "CreateIssueRequest",
@@ -28,6 +33,14 @@ export default {
   },
   methods: {
     handleChoice({ connector, requestId }) {
+      if (connector == CHAPI) {
+        this.$router.push({
+          name: "ChapiIssueHandler",
+          params: { requestId },
+        });
+        return;
+      }
+
       this.$router.push({
         name: "PerformIssueRequest",
         params: { connector, requestId },
