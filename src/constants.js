@@ -1,9 +1,15 @@
+import jolocomImageUrl from '@/assets/connector-jolocom-logo.svg';
+import irmaImageUrl from '@/assets/connector-irma-logo.svg';
+import indyImageUrl from '@/assets/connector-indy-logo.png';
+import idaImageUrl from '@/assets/connector-ida-logo.png';
+import trinsicImageUrl from '@/assets/connector-trinsic-logo.jpg';
+
 export const CONNECTORS = [
   {
     name: "jolocom",
     title: "Jolocom",
     walletProviderUrl: "https://jolocom.io/",
-    imageUrl: require("./assets/connector-jolocom-logo.svg"),
+    imageUrl: jolocomImageUrl,
     appleDownloadUrl:
       "https://apps.apple.com/us/app/jolocom-smartwallet/id1223869062",
     googleDownloadUrl:
@@ -13,7 +19,7 @@ export const CONNECTORS = [
     name: "irma",
     title: "IRMA",
     walletProviderUrl: "https://irma.app/",
-    imageUrl: require("./assets/connector-irma-logo.svg"),
+    imageUrl: irmaImageUrl,
     appleDownloadUrl:
       "https://apps.apple.com/nl/app/irma-authenticatie/id1294092994",
     googleDownloadUrl:
@@ -23,7 +29,7 @@ export const CONNECTORS = [
     name: "indy",
     title: "Esatus",
     walletProviderUrl: "https://esatus.com/",
-    imageUrl: require("./assets/connector-indy-logo.png"),
+    imageUrl: indyImageUrl,
     appleDownloadUrl:
       "https://apps.apple.com/us/app/esatus-wallet/id1496769057",
     googleDownloadUrl:
@@ -33,7 +39,7 @@ export const CONNECTORS = [
     name: "ida",
     title: "Datakeeper",
     walletProviderUrl: "https://rabobank.nl/",
-    imageUrl: require("./assets/connector-ida-logo.png"),
+    imageUrl: idaImageUrl,
     appleDownloadUrl:
       "https://apps.apple.com/nl/app/ida/id1546059184",
     googleDownloadUrl:
@@ -43,7 +49,7 @@ export const CONNECTORS = [
     name: "trinsic",
     title: "Trinsic",
     walletProviderUrl: "https://trinsic.id/",
-    imageUrl: require("./assets/connector-trinsic-logo.jpg"),
+    imageUrl: trinsicImageUrl,
     appleDownloadUrl:
       "https://apps.apple.com/nl/app/trinsic-wallet/id1475160728",
     googleDownloadUrl:

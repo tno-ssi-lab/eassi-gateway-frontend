@@ -26,11 +26,7 @@
     <template #footer>
       <div class="d-inline-flex mx-1">
         <a :href="connector.appleDownloadUrl" target="_blank" @click.stop>
-          <b-img
-            class="store-badge"
-            src="../assets/app-store-badge.svg"
-            fluid
-          />
+          <b-img class="store-badge" :src="appStoreBadge" fluid />
         </a>
       </div>
       <div class="d-inline-flex mx-1">
@@ -38,7 +34,7 @@
           <b-img
             class="store-badge"
             alt="Get it on Google Play"
-            src="../assets/google-play-badge.svg"
+            :src="googlePlayBadge"
             fluid
           />
         </a>
@@ -48,6 +44,9 @@
 </template>
 
 <script>
+import appStoreBadge from "@/assets/app-store-badge.svg";
+import googlePlayBadge from "@/assets/google-play-badge.svg";
+
 export default {
   name: "ConnectorCard",
   props: {
@@ -55,6 +54,12 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      googlePlayBadge: googlePlayBadge,
+      appStoreBadge: appStoreBadge,
+    };
   },
 };
 </script>

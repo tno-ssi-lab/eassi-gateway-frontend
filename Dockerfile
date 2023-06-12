@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:16-slim
 
 RUN npm install --global @vue/cli
 
@@ -13,7 +13,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 # Install all Packages
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Copy all other source code to work directory
 COPY . ./
@@ -22,4 +22,4 @@ ENV SSI_SERVER_URL=https://path/to/my/server
 
 EXPOSE 8080
 
-CMD [ "yarn", "run", "serve" ]
+CMD [ "yarn", "run", "dev"]

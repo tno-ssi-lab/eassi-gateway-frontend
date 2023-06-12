@@ -35,4 +35,7 @@
 //     this.$router.push("/utils/create-token");
 //   },
 // };
+  export default{
+    name: "Utils" // eslint-disable-line 
+  }
 </script>

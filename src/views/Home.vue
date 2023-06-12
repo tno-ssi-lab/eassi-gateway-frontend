@@ -67,7 +67,7 @@ import ConnectorCard from "../components/ConnectorCard.vue";
 import { CONNECTORS } from "../constants";
 
 export default {
-  name: "Home",
+  name: "Home", // eslint-disable-line vue/multi-word-component-names
 
   components: {
     ConnectorCard,

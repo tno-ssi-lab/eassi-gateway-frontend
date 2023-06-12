@@ -1,10 +1,6 @@
 <template>
   <div class="issue">
-    <create-credential-request
-      :token="token"
-      type="issue"
-      @choice="handleChoice"
-    >
+    <create-credential-request :token="token" type="issue" @choice="handleChoice">
       <div class="py-5 text-center">
         <h2>Select your Wallet app</h2>
         <p>
@@ -20,7 +16,7 @@
 import CreateCredentialRequest from "../components/CreateCredentialRequest.vue";
 
 export default {
-  name: "Issue",
+  name: "CreateIssueRequest",
   components: {
     CreateCredentialRequest,
   },
